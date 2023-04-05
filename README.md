@@ -1,4 +1,6 @@
-# ContosoCrafts
+# Binary Brigade (Team 5)
+
+# SeaTea
 
 ## Tutorial
 
