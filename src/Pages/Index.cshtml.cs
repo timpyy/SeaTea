@@ -6,6 +6,8 @@ using Microsoft.Extensions.Logging;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 // add comment by Yash Atre, will be synced.
+// add comment by Yash Atre, will be synced
+
 
 namespace ContosoCrafts.WebSite.Pages
 {
