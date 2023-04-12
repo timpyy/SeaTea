@@ -8,7 +8,9 @@ using ContosoCrafts.WebSite.Services;
 // add comment by Yash Atre, will be synced.
 // add comment by Yash Atre, will be synced
 
-
+///<summary>
+///Yash Atre
+///</summary>
 namespace ContosoCrafts.WebSite.Pages
 {
     public class IndexModel : PageModel
