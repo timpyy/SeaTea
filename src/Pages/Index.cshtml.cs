@@ -7,7 +7,7 @@ using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 
 ///<summary>
-///Tim Pornyuenyong
+///Nole Powell
 ///</summary>
 namespace ContosoCrafts.WebSite.Pages
 {
