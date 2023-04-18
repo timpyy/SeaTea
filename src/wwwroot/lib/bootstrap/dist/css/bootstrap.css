@@ -60,7 +60,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: #d3d3d3;
 }
 
 [tabindex="-1"]:focus {
@@ -6608,7 +6608,7 @@ button.bg-dark:focus {
 }
 
 .border-bottom {
-  border-bottom: 1px solid #dee2e6 !important;
+    border-bottom: 1px solid #D3D3D3 !important;
 }
 
 .border-left {
