@@ -146,3 +146,26 @@ ul {
     background: -moz-linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
     background: linear-gradient(110deg, #252152 60%, #e9a8a6 60%);
 }
+w3-light-grey .progress-container {
+    position: relative;
+    width: 100%;
+}
+
+.photo {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.progress .w3-container {
+    height: 2px;
+    background-color: #ddd;
+}
+
+.progress-bar .w3-green {
+    height: 100%;
+    background-color: #4CAF50 !important; /* green color */
+    width: 0%;
+    transition: width 0.1s ease-in-out; /* smooth animation */
+}
