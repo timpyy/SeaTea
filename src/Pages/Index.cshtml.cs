@@ -7,7 +7,7 @@ using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 
 ///<summary>
-///Nole Powell
+///Kaiser Pull Request
 ///</summary>
 namespace ContosoCrafts.WebSite.Pages
 {
