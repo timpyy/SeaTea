@@ -4764,6 +4764,7 @@ input[type="button"].btn-block {
     column-gap: 1.25rem;
     orphans: 1;
     widows: 1;
+    padding-top: 30px;
   }
   .card-columns .card {
     display: inline-block;
