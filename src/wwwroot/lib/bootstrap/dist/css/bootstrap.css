@@ -60,7 +60,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: #d3d3d3;
 }
 
 [tabindex="-1"]:focus {
@@ -4764,6 +4764,7 @@ input[type="button"].btn-block {
     column-gap: 1.25rem;
     orphans: 1;
     widows: 1;
+    padding-top: 30px;
   }
   .card-columns .card {
     display: inline-block;
@@ -5271,17 +5272,17 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .progress-bar {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-pack: center;
-  justify-content: center;
-  color: #fff;
-  text-align: center;
-  white-space: nowrap;
-  background-color: #007bff;
-  transition: width 0.6s ease;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #4CAF50;
+    transition: width 2s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -6608,7 +6609,7 @@ button.bg-dark:focus {
 }
 
 .border-bottom {
-  border-bottom: 1px solid #dee2e6 !important;
+    border-bottom: 1px solid #D3D3D3 !important;
 }
 
 .border-left {
