@@ -1,7 +1,8 @@
 ﻿@page
+@using ContosoCrafts.WebSite.Components
 @{
-    ViewData["Title"] = "Product Listing";
+    ViewData["Title"] = "Store Listing";
 }
 <h1>@ViewData["Title"]</h1>
 
-<p>Use this page to list products from the site.</p>
+@(await Html.RenderComponentAsync<ProductList>(RenderMode.ServerPrerendered))
