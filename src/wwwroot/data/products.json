@@ -33,6 +33,9 @@
     "Url": "https://www.oasisteazone.com/",
     "Title": "Oasis Tea Zone",
     "Description": "Location: 519 6th Ave S, Seattle, WA 98104",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu":  null,
     "Ratings": [
       5,
       2,
@@ -49,6 +52,9 @@
     "Url": "https://ding-tea-seattle.business.site/",
     "Title": "Ding Tea Seattle",
     "Description": "Location: 4725 University Way NE, Seattle, WA 98105",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Ratings": null
   },
   {
@@ -58,6 +64,9 @@
     "Url": "https://happylemonseattle.com/",
     "Title": "Happy Lemon - Seattle",
     "Description": "Location: 2245 8th AVE, Seattle, 98121",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Ratings": null
   },
   {
@@ -67,6 +76,9 @@
     "Url": "https://www.snrtea.com/",
     "Title": "Sunright Tea Studio",
     "Description": "Location: 4545 Roosevelt Way NE #103, Seattle, WA 98105",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Ratings": null
   },
   {
@@ -76,6 +88,9 @@
     "Url": "https://www.1992sharetea.com/",
     "Title": "Sharetea - Chinatown",
     "Description": "Location: 651 S King St, Seattle, WA 98104",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Ratings": null
   },
   {
@@ -85,6 +100,9 @@
     "Url": "https://en.tp-tea.com/menu/",
     "Title": "TP Tea",
     "Description": "Location: 679 S King St, Seattle, WA 98104",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Ratings": null
   },
   {
@@ -93,6 +111,9 @@
     "img": "https://fastly.4sqi.net/img/general/600x600/3414310_8oQc9weqALLnrOYKq-ROWPGocvdzEl-yC4A7LKjbOWw.jpg",
     "Url": "https://www.ohbearcafe.com/",
     "Title": "OH Bear Cafe & Teahouse",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Description": "Location: 4708 11th Ave NE, Seattle, WA 98105",
     "Ratings": null
   },
@@ -103,6 +124,9 @@
     "Url": "https://teaking.co/",
     "Title": "Tea King",
     "Description": "Location: 1600 Dexter Ave N Unit 202, Seattle, WA 98109",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Ratings": null
   },
   {
@@ -112,6 +136,9 @@
     "Url": "https://www.tigersugar-wa.com/",
     "Title": "Tiger Sugar - Seattle",
     "Description": "Location: 1422 2nd Ave, Seattle, WA 98101",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Ratings": null
   },
   {
@@ -121,6 +148,9 @@
     "Url": null,
     "Title": "The Bubble Tea Shop - Seattle",
     "Description": "Location: Armory, 305 Harrison St, Seattle, WA 98109",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Ratings": null
   },
   {
@@ -130,6 +160,9 @@
     "Url": "https://thedriptea.com/",
     "Title": "Drip Tea",
     "Description": "Location: 1416 10th Ave, Seattle, WA 98122",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Ratings": null
   },
   {
@@ -139,6 +172,9 @@
     "Url": "https://www.themoomilkbar.com/",
     "Title": "The Moo Bar",
     "Description": "Location: 2124 Westlake Ave, Seattle, WA 98121",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Ratings": null
   },
   {
@@ -148,6 +184,9 @@
     "Url": "https://www.yifangteapnw.com/",
     "Title": "Yifang Taiwan Fruit Tea - Chinatown",
     "Description": "Location: 619 S King St, Seattle, WA 98104",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Ratings": null
   },
   {
@@ -157,6 +196,9 @@
     "Url": "https://www.mochinut.com/",
     "Title": "Mochinut",
     "Description": "Location: 400 Fairview Ave N #110, Seattle, WA 98109",
+    "Hours": null,
+    "Phone": null,
+    "Online Menu": null,
     "Ratings": null
   },
   {
@@ -187,7 +229,7 @@
     ]
   },
   {
-    "Id": "Don't Yell at Me'",
+    "Id": "Don't Yell at Me",
     "Maker": "@Nole",
     "img": "http://www.ss15courtyard.com.my/wp-content/uploads/2016/08/Dont-Yell-At-Me-Store-Front-Photo.jpeg",
     "Url": "https://www.dontyellatme.com/",
