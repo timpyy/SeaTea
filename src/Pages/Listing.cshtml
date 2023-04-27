@@ -1,8 +1,0 @@
-﻿@page
-@using ContosoCrafts.WebSite.Components
-@{
-    ViewData["Title"] = "Store Listing";
-}
-<h1>@ViewData["Title"]</h1>
-
-@(await Html.RenderComponentAsync<ListingPage>(RenderMode.ServerPrerendered))
