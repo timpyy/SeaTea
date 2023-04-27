@@ -18,7 +18,7 @@
             <td>@product.Title</td>
             <!-- Product Description -->
             <td>@product.Description</td>
-            <td><button @onclick="(e => SelectProduct(product.Id))" data-toggle="modal" data-target="#productModal"> More Info </button></td>
+            <td><a asp-page="Read" href="../Pages/Read.cshtml" asp-route-id="@product.Id">Read</a></td>
         </tr>
     }
 
