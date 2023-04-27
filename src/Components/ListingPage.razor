@@ -9,10 +9,14 @@
         <th>Address</th>
         <th>Link</th>
     </tr>
+    <!-- Iterating over each product from the ProductService -->
     @foreach (var product in ProductService.GetProducts())
     {
+            <!-- Creating new rows in the table element for each product -->
         <tr>
+            <!-- Product Title -->
             <td>@product.Title</td>
+            <!-- Product Description -->
             <td>@product.Description</td>
             <td><button @onclick="(e => SelectProduct(product.Id))" data-toggle="modal" data-target="#productModal"> More Info </button></td>
         </tr>
@@ -24,8 +28,10 @@
 
 @code 
 {
+    //The following code is copied from the pre-existing .razor component
     ProductModel selectedProduct;
     string selectedProductId;
+
 
     void SelectProduct(string productId)
     {
