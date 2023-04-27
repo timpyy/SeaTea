@@ -1,4 +1,4 @@
-﻿@page "{id}"
+﻿@page "{id}"   //this is how values are passed among pages.
 @using ContosoCrafts.WebSite.Services
 @inject JsonFileProductService ProductService
 @model ContosoCrafts.WebSite.Pages.ReadModel
@@ -8,7 +8,7 @@
 }
 
 <h1>Read</h1>
-
+<!-- Here we created the product description which has a title, image and breif description-->
 <div class="content">
     <h5 class="title" id="productTitle">@Model.Product.Title</h5>
 
