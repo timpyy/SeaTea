@@ -1,0 +1,65 @@
+﻿@page "{id}"
+@using ContosoCrafts.WebSite.Services
+@inject JsonFileProductService ProductService
+@model ContosoCrafts.WebSite.Pages.Product.UpdateModel
+
+@{
+    ViewData["Title"] = "Update page";
+}
+
+<h1>Update</h1>
+
+<div class="container">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.HiddenFor(x => x.Product.Id)
+
+        <div class="form-group">
+            <label asp-for="Product.Title" class="control-label"> Store Name </label>
+            <input asp-for="Product.Title" class="form-control" />
+            <span asp-validation-for="Product.Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Description" class="control-label"> Store Address </label>
+            <input asp-for="Product.Description" class="form-control" />
+            <span asp-validation-for="Product.Description" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+
+            <label asp-for="Product.Url" class="control-label"> Store URL </label>
+            <input asp-for="Product.Url" class="form-control" />
+            <span asp-validation-for="Product.Url" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Image" class="control-label">Store Image URL</label>
+            <input asp-for="Product.Image" class="form-control" />
+            <span asp-validation-for="Product.Image" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.Phone" class="control-label">Store Phone Number</label>
+            <input asp-for="Product.Phone" class="form-control" />
+            <span asp-validation-for="Product.Phone" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Product.OnlineMenuLink" class="control-label">Store Online Menu URL</label>
+            <input asp-for="Product.OnlineMenuLink" class="form-control" />
+            <span asp-validation-for="Product.OnlineMenuLink" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </div>
+    </form>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
