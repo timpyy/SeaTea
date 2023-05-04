@@ -28,7 +28,9 @@ namespace UnitTests.Services
 
 
 
-       
+       /// <summary>
+       /// Test for update to rating
+       /// </summary>
         [Test]
         public void AddRating_Valid_Rating_Valid_Should_Return_Updated_Rating()
         {
@@ -52,7 +54,9 @@ namespace UnitTests.Services
 
 
 
-        
+        /// <summary>
+        /// test for initialization
+        /// </summary>
         [Test]
         public void AddRating_Valid_Rating_Added_To_Null_Ratings_Should_Return_New_Initialized_Value()
         {
