@@ -118,6 +118,7 @@ namespace ContosoCrafts.WebSite.Services
                 Id = System.Guid.NewGuid().ToString(),
                 Title = "Enter Store Name",
                 Description = "Enter Store Address",
+                Neighborhood = "Enter Seattle Neighborhood",
                 Url = "Enter Store URL",
                 Image = "Enter Store Image URL",
                 Phone = "Enter Store's Phone Number",
@@ -150,6 +151,7 @@ namespace ContosoCrafts.WebSite.Services
             // Update the data to the new passed in values
             productData.Title = data.Title;
             productData.Description = data.Description.Trim();
+            productData.Neighborhood = data.Neighborhood;
             productData.Url = data.Url;
             productData.Image = data.Image;
             productData.Phone = data.Phone;
