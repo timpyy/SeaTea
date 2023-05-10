@@ -9,9 +9,11 @@ using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
-    /// <summary>
-    /// Manage the Update of the data for a single record
-    /// </summary>
+    // <summary>
+    // The purpose of this class is to Manage the Update of the
+    // data for a single recor because we want to implement the
+    // update from CRUDi system into our website.
+    // </summary>
 
     public class UpdateModel : PageModel
     {
@@ -19,7 +21,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
-        /// Defualt Construtor
+        /// Provides the Construtor.
         /// </summary>
         /// <param name="logger"></param>
         /// <param name="productService"></param>
@@ -28,7 +30,8 @@ namespace ContosoCrafts.WebSite.Pages.Product
             ProductService = productService;
         }
 
-        // The data to show, bind to it for the post
+        // The data to show, bind to it for the post to create
+        // a function from an existing function.
         [BindProperty]
         public ProductModel Product { get; set; }
 
@@ -39,14 +42,14 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <param name="id"></param>
         public void OnGet(string id)
         {
-            Product = ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(id));
+           Product = ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(id));
         }
 
         /// <summary>
-        /// Post the model back to the page
-        /// The model is in the class variable Product
-        /// Call the data layer to Update that data
-        /// Then return to the index page
+        /// The purpose of this method is Post the model back to the page.
+        /// The model is in the class variable Product to then
+        /// call the data layer to Update that data
+        /// Then return to the index page for the updated data.
         /// </summary>
         /// <returns></returns>
 
