@@ -10,29 +10,34 @@ using System.Threading.Tasks;
 
 namespace UnitTests.Pages.Delete
 {
+    //<summary>
+    //The purpose of this class is to run a unit test
+    //on the Delete method because we want to have a 100%
+    //coverage for our unit tests.
+    //</summary>
     public class DeleteTests
     {
-        #region TestSetup
-        public static DeleteModel pageModel;
+        #region TestSetup
+
+        //Sets up the testing environment
+        public static DeleteModel pageModel;
 
 
-
+        //Inititates pagemodel to a Delete Model object
         [SetUp]
         public void TestInitialize()
         {
+            //Initilizes the unit test using the TestHelper class.
             pageModel = new DeleteModel(TestHelper.ProductService)
             {
             };
         }
 
-
-
         #endregion TestSetup
-
-
 
         #region OnGet
         [Test]
+        //Applies Unit Tests to the delete method for the website. 
         public void OnGet_Valid_Should_Return_Products()
         {
             // Arrange
