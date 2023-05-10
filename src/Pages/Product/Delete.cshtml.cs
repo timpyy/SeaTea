@@ -4,7 +4,7 @@ using System.Linq;
 using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 
-namespace ContosoCrafts.WebSite.Pages
+namespace ContosoCrafts.WebSite.Pages.Product
 {
     // <summary>
     // The purpose of this class is to Manage the deletion of the
