@@ -6,8 +6,14 @@ using System.Collections.Generic;
 
 namespace ContosoCrafts.WebSite.Pages
 {
+    // <summary>
+    // The purpose of this class is to Manage the index of the
+    // data for a single record because we want to implement the
+    // index from CRUDi system into our website.
+    // </summary>
     public class ListingModel : PageModel
     {
+
         public ListingModel(JsonFileProductService productService)
         {
             ProductService = productService;
