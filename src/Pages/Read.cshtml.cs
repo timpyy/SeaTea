@@ -6,9 +6,14 @@ using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Pages
 {
+    // <summary>
+    // The purpose of this class is to Manage the Read of the
+    // data for a single recor because we want to implement the
+    // read from CRUDi system into our website.
+    // </summary>
     public class ReadModel : PageModel
     {
-        // Data middletier
+        // Data middletier where the data is obtained from.
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
@@ -21,7 +26,7 @@ namespace ContosoCrafts.WebSite.Pages
             ProductService = productService;
         }
 
-        // The data to show
+        // The data to show for reading.
         public ProductModel Product;
 
         /// <summary>
