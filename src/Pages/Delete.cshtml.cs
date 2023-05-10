@@ -6,9 +6,14 @@ using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Pages
 {
+    // <summary>
+    // The purpose of this class is to Manage the deletion of the
+    // data for a single record because we want to implement the
+    // delete from CRUDi system into our website.
+    // </summary>
     public class DeleteModel : PageModel
     {
-        // Data middletier
+        // Data middletier that holds that following data.
         public JsonFileProductService ProductService { get; }
 
         
@@ -26,10 +31,11 @@ namespace ContosoCrafts.WebSite.Pages
         /// <param name="id"></param>
         public void OnGet(string id)
         {
+            //Gets the data that matches the data for deletion.
             Product = ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(id));
         }
 
-       
+        //Provides the result after the deletion of a record
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)
@@ -37,8 +43,10 @@ namespace ContosoCrafts.WebSite.Pages
                 return Page();
             }
 
+            //Deletes the data selected.
             ProductService.DeleteData(Product.Id);
 
+            //Goes back to the data with the deletion completion.
             return RedirectToPage("/Listing");
         }
     }
