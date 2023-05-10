@@ -6,9 +6,14 @@ using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Pages.Product
 {
+    // <summary>
+    // The purpose of this class is to Manage the create of the
+    // data for a single record because we want to implement the
+    // create from CRUDi system into our website.
+    // </summary>
     public class CreateModel : PageModel
     {
-        // Data middle tier
+        // Data middle tier where the previous data are stored in.
         public JsonFileProductService ProductService { get; }
 
         /// <summary>
@@ -21,7 +26,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             ProductService = productService;
         }
 
-        // The data to show
+        // The data to show for create.
         public ProductModel Product;
 
         /// <summary>
@@ -30,6 +35,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         /// <param name="id"></param>
         public IActionResult OnGet()
         {
+            //Creates the new record.
             Product = ProductService.CreateData();
 
             return RedirectToPage("./Update", new { Id = Product.Id });
