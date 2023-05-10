@@ -15,4 +15,10 @@
 		</Content>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Pages\Product\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Pages\Product\" />
+	</ItemGroup>
 </Project>
