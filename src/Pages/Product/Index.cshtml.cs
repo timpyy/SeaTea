@@ -4,17 +4,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 
-namespace ContosoCrafts.WebSite.Pages
+namespace ContosoCrafts.WebSite.Pages.Product
 {
     // <summary>
     // The purpose of this class is to Manage the index of the
     // data for a single record because we want to implement the
     // index from CRUDi system into our website.
     // </summary>
-    public class ListingModel : PageModel
+    public class IndexModel : PageModel
     {
 
-        public ListingModel(JsonFileProductService productService)
+        public IndexModel(JsonFileProductService productService)
         {
             ProductService = productService;
         }
