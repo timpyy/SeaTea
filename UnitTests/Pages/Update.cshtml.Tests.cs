@@ -1,15 +1,6 @@
-﻿
-
-using Microsoft.AspNetCore.Mvc;
-
-
-
+﻿using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
-
-
-
 using ContosoCrafts.WebSite.Pages.Product;
-
 using ContosoCrafts.WebSite.Models;
 
 
@@ -17,19 +8,23 @@ using ContosoCrafts.WebSite.Models;
 namespace UnitTests.Pages.Product.Update
 
 {
-
+    //<summary>
+    //The purpose of this class is to run a update test
+    //on the update method because we want to have a 100%
+    //coverage for our unit tests.
+    //</summary>
     public class UpdateTests
 
     {
 
         #region TestSetup
-
+        //Sets up the testing environment
         public static UpdateModel pageModel;
 
 
 
         [SetUp]
-
+        //Initilizes the unit test using the TestHelper class.
         public void TestInitialize()
 
         {
@@ -51,20 +46,16 @@ namespace UnitTests.Pages.Product.Update
         #region OnGet
 
         [Test]
-
+        //Applies Unit Tests to the update method for the website.
         public void OnGet_Valid_Should_Return_Products()
 
         {
 
             // Arrange
 
-
-
             // Act
 
             pageModel.OnGet("Boba Up");
-
-
 
             // Assert
 
@@ -77,11 +68,12 @@ namespace UnitTests.Pages.Product.Update
         #endregion OnGet
 
 
-
         #region OnPost
 
         [Test]
 
+        //Applies Unit Tests to the read method for the website if onpost
+        //is valid.
         public void OnPost_Valid_Should_Return_Products()
 
         {
@@ -124,6 +116,8 @@ namespace UnitTests.Pages.Product.Update
 
         [Test]
 
+        //Applies Unit Tests to the read method for the website if
+        //the onpost is invalid.
         public void OnPost_InValid_Model_NotValid_Return_Page()
 
         {
