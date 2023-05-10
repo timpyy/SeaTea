@@ -1,14 +1,13 @@
-﻿using ContosoCrafts.WebSite.Models;
-using ContosoCrafts.WebSite.Pages;
-using Microsoft.AspNetCore.Mvc;
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
-namespace UnitTests.Pages.Delete
+using Microsoft.AspNetCore.Mvc;
+
+using NUnit.Framework;
+
+using ContosoCrafts.WebSite.Pages.Product;
+using ContosoCrafts.WebSite.Models;
+
+namespace UnitTests.Pages.Product.Delete
 {
     //<summary>
     //The purpose of this class is to run a unit test
