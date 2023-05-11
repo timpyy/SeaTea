@@ -3,9 +3,11 @@ using NUnit.Framework;
 
 namespace UnitTests
 {
-    /// <summary>
-    /// Test Context used by bUnit
-    /// </summary>
+    // <summary>
+    // The purpose of this class is to test the BUnitHelper
+    // because we want to run a 100% test coverage for our
+    // unit test.
+    // </summary>
     public abstract class BunitTestContext : TestContextWrapper
     {
         // The Setup sets the context
