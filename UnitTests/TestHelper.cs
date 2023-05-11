@@ -12,7 +12,12 @@ using Moq;
 
 using ContosoCrafts.WebSite.Services;
 using NUnit.Framework.Internal;
-
+// <summary>
+// The purpose of this class is to help test for the unit
+// tests seen throughout the file from the original framework
+// because we want to run a 100% test coverage for our
+// unit test.
+// </summary>
 namespace UnitTests
 {
     /// <summary>
@@ -45,6 +50,7 @@ namespace UnitTests
         /// </summary>
         static TestHelper()
         {
+            //Creates a mock webhost environment for a setup to be used.
             MockWebHostEnvironment = new Mock<IWebHostEnvironment>();
             MockWebHostEnvironment.Setup(m => m.EnvironmentName).Returns("Hosting:UnitTestEnvironment");
             MockWebHostEnvironment.Setup(m => m.WebRootPath).Returns(TestFixture.DataWebRootPath);
@@ -56,9 +62,12 @@ namespace UnitTests
             };
             HttpContextDefault.HttpContext.TraceIdentifier = "trace";
 
+            //Uses the model state dictionary
             ModelState = new ModelStateDictionary();
 
-            ActionContext = new ActionContext(HttpContextDefault, HttpContextDefault.GetRouteData(), new PageActionDescriptor(), ModelState);
+            ActionContext = new ActionContext(HttpContextDefault,
+                HttpContextDefault.GetRouteData(), new PageActionDescriptor(),
+                ModelState);
 
             ModelMetadataProvider = new EmptyModelMetadataProvider();
             ViewData = new ViewDataDictionary(ModelMetadataProvider, ModelState);
@@ -74,6 +83,8 @@ namespace UnitTests
 
             JsonFileProductService productService;
 
+            //Initiate the test helper to be then used for the following tests
+            //or unit tests in the file.
             productService = new JsonFileProductService(TestHelper.MockWebHostEnvironment.Object);
         }
     }

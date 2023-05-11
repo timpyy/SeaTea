@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using NUnit.Framework;
-using ContosoCrafts.WebSite.Pages;
+using ContosoCrafts.WebSite.Pages.Product;
 
 
 
-namespace UnitTests.Pages.Listing
+namespace UnitTests.Pages.Product.Index
 {
     //<summary>
     //The purpose of this class is to run a unit test
@@ -18,7 +18,7 @@ namespace UnitTests.Pages.Listing
         public static PageContext pageContext;
 
         //Inititates pagemodel to a ListingModel object
-        public static ListingModel pageModel;
+        public static IndexModel pageModel;
 
 
 
@@ -26,7 +26,7 @@ namespace UnitTests.Pages.Listing
         //Initilizes the unit test using the TestHelper class.
         public void TestInitialize()
         {
-            pageModel = new ListingModel(TestHelper.ProductService)
+            pageModel = new IndexModel(TestHelper.ProductService)
             {
             };
         }

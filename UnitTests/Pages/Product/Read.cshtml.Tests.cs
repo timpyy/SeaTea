@@ -2,11 +2,11 @@
 
 
 
-using ContosoCrafts.WebSite.Pages;
+using ContosoCrafts.WebSite.Pages.Product;
 
 
 
-namespace UnitTests.Pages.Read
+namespace UnitTests.Pages.Product.Read
 
 {
     //<summary>

@@ -17,7 +17,6 @@ namespace ContosoCrafts.WebSite.Models
         //Creates the maker for the store.
         public string Maker { get; set; }
         
-        [JsonPropertyName("img")]
         //Provides image for the store.
         public string Image { get; set; }
         //Creates a link for the store.

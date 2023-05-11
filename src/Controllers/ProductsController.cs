@@ -7,6 +7,11 @@ using ContosoCrafts.WebSite.Services;
 
 namespace ContosoCrafts.WebSite.Controllers
 {
+    //<summary>
+    //The purpose of this class is for product service to be
+    //controlled when requsted because we want to be able to
+    //request correctly per record.
+    //</summary>
     [ApiController]
     [Route("[controller]")]
     public class ProductsController : ControllerBase
@@ -31,7 +36,8 @@ namespace ContosoCrafts.WebSite.Controllers
             
             return Ok();
         }
-
+        //Provides a rating request using the productid and rating
+        //found in each record data.
         public class RatingRequest
         {
             public string ProductId { get; set; }

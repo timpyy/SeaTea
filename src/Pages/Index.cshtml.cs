@@ -7,10 +7,14 @@ using ContosoCrafts.WebSite.Models;
 using ContosoCrafts.WebSite.Services;
 
 ///<summary>
-///Kaiser Pull Request Here
+///The purpose of this file is provide an index for
+///each unique record stored because we want to be
+///able to identify each record based on their given index
 ///</summary>
 namespace ContosoCrafts.WebSite.Pages
 {
+    //Uses page model to be modified that implements an
+    //index into the page.
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
