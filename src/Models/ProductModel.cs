@@ -22,7 +22,10 @@ namespace ContosoCrafts.WebSite.Models
         public string Image { get; set; }
         //Creates a link for the store.
         public string Url { get; set; }
-        //Provides a title for the store.
+        //Provides a title for the store
+       
+        public ProductTypeEnum ProductType { get; set; } = ProductTypeEnum.Undefined;
+
         public string Title { get; set; }
         //Provides a description about the boba store.
         public string Description { get; set; }
