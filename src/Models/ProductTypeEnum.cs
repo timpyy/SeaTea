@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace ContosoCrafts.WebSite.Models
 {
+    //<summary>
+    //The purpose of this file class
+    //is to make the search filter work
+    //because we want to be able to work the filter requirement
+    //from the data stored.
+    //</summary>
     public enum ProductTypeEnum
     {
         Undefined = 0,
@@ -20,6 +26,7 @@ namespace ContosoCrafts.WebSite.Models
 
     public static class ProductTypeEnumExtensions
     {
+        //Provides the display name of using the product data.
         public static string DisplayName(this ProductTypeEnum data)
         {
             return data switch
