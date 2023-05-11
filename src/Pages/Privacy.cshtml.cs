@@ -4,6 +4,12 @@ using Microsoft.Extensions.Logging;
 
 namespace ContosoCrafts.WebSite.Pages
 {
+    //<summary>
+    //The purpose of this file is to provide
+    //a constructor for the privacy model
+    //in order to run a unit because
+    //we want to get a 100% unit test cover.
+    //</summary>
     public class PrivacyModel : PageModel
     {
         private readonly ILogger<PrivacyModel> _logger;
