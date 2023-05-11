@@ -47,7 +47,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             ProductService.DeleteData(Product.Id);
 
             //Goes back to the data with the deletion completion.
-            return RedirectToPage("/Listing");
+            return RedirectToPage("/Product/Index");
         }
     }
 }
