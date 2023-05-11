@@ -4,6 +4,7 @@ using NUnit.Framework;
 
 using ContosoCrafts.WebSite.Pages.Product;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 
 namespace UnitTests.Models.ProductModel
 {
@@ -41,6 +42,29 @@ namespace UnitTests.Models.ProductModel
             Assert.AreEqual(oldCount + 1, TestHelper.ProductService.GetAllData().Count());
         }
         #endregion OnGet
+        #region Serialize
+        [Test]
+        //Applies a unit test validation on the Json toString serialization.
+        public void Valid_Serialization()
+        {
+            // Arrange
+            var product = TestHelper.ProductService.CreateData();
+            var settings = new JsonSerializerSettings
+            {
+                // Added Json Serialization setting to handle single quotation marks in strings
+                StringEscapeHandling = StringEscapeHandling.EscapeHtml
+            };
+            // Serializes the data using the new settings
+            var expectedJson = JsonConvert.SerializeObject(product, settings);
 
+            // Act
+            var actualResult = product.ToString();
+
+            // Assert
+            Assert.AreEqual(expectedJson, actualResult);
+        }
     }
+    #endregion Serialize
+
 }
+
