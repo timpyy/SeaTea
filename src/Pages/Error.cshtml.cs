@@ -20,18 +20,14 @@ namespace ContosoCrafts.WebSite.Pages
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
         private readonly ILogger<ErrorModel> _logger;
-        private JsonFileProductService productService;
+        //private JsonFileProductService productService;
 
         public ErrorModel(ILogger<ErrorModel> logger)
         {
             _logger = logger;
         }
 
-        public ErrorModel(ILogger<ErrorModel> logger, JsonFileProductService productService) : this(logger)
-        {
-            this.productService = productService;
-        }
-
+       
         //Provides the error message.
         public void OnGet()
         {
