@@ -5,6 +5,7 @@ using NUnit.Framework;
 using Moq;
 
 using ContosoCrafts.WebSite.Pages;
+using System.Linq;
 
 namespace UnitTests.Pages.Index
 {
@@ -45,8 +46,32 @@ namespace UnitTests.Pages.Index
 
             // Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
+
+
         }
 
         #endregion OnGet
+        #region OnGet
+        /// <summary>
+        /// Unit test for checking valid search string returns corresponding product
+        /// </summary>
+        [Test]
+        public void OnGet_Should_Return_All_Products()
+        {
+            // Arrange
+
+
+
+            // Act
+            pageModel.OnGet();
+
+
+
+            // Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(25, pageModel.Products.Count());
+            
+        }
+        #endregion OnGet
     }
 }
