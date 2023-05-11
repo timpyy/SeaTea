@@ -108,7 +108,7 @@ namespace UnitTests.Pages.Product.Update
 
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
 
-            Assert.AreEqual(true, result.PageName.Contains("Listing"));
+            Assert.AreEqual(true, result.PageName.Contains("Index"));
 
         }
 
