@@ -4,6 +4,11 @@ using NUnit.Framework;
 
 namespace UnitTests
 {
+    // <summary>
+    // The purpose of this class is to test the TestFixture
+    // because we want to run a 100% test coverage for our
+    // unit test.
+    // </summary>
     [SetUpFixture]
     public class TestFixture
     {
