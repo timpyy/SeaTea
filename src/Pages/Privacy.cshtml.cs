@@ -23,15 +23,14 @@ namespace ContosoCrafts.WebSite.Pages
             JsonFileProductService productService)
         {
             _logger = logger;
-            ProductService = productService;
+           
         }
 
-        public JsonFileProductService ProductService { get; }
-        public IEnumerable<ProductModel> Products { get; private set; }
+        
 
         public void OnGet()
         {
-            Products = ProductService.GetProducts();
+            
         }
     }
 }
