@@ -1,32 +1,38 @@
-﻿using ContosoCrafts.WebSite.Services;
+﻿using System.Collections.Generic;
+
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
+using ContosoCrafts.WebSite.Models;
+using ContosoCrafts.WebSite.Services;
+
+///<summary>
+///The purpose of this file is provide an Privacy for
+///each unique record stored because we want to be
+///able to identify each record based on their given Privacy
+///</summary>/
 namespace ContosoCrafts.WebSite.Pages
 {
-    //<summary>
-    //The purpose of this file is to provide
-    //a constructor for the privacy model
-    //in order to run a unit because
-    //we want to get a 100% unit test cover.
-    //</summary>
+    //Uses page model to be modified that implements an
+    //Privacy into the page.
     public class PrivacyModel : PageModel
     {
         private readonly ILogger<PrivacyModel> _logger;
-        private JsonFileProductService productService;
 
-        public PrivacyModel(ILogger<PrivacyModel> logger)
+        public PrivacyModel(ILogger<PrivacyModel> logger,
+            JsonFileProductService productService)
         {
             _logger = logger;
+            ProductService = productService;
         }
 
-        public PrivacyModel(ILogger<PrivacyModel> logger, JsonFileProductService productService) : this(logger)
-        {
-            this.productService = productService;
-        }
+        public JsonFileProductService ProductService { get; }
+        public IEnumerable<ProductModel> Products { get; private set; }
 
         public void OnGet()
         {
+            Products = ProductService.GetProducts();
         }
     }
 }
+
