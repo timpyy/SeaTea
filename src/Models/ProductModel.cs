@@ -3,28 +3,30 @@ using System.Text.Json.Serialization;
 
 namespace ContosoCrafts.WebSite.Models
 {
-    //<summary>
-    //The purpose of this class is to Create a Product Model
-    //where the specifics of a data such as image, url, title, description
-    //neighborhood, online menu link, phone and ratings will be used
-    //because we want to store our data for boba consistently to be able
-    //to implement CRUDi methods when needed.
-    //</summary>
+    ///<summary>
+    ///The purpose of this class is to Create a Product Model
+    ///where the specifics of a data such as image, url, title, description
+    ///neighborhood, online menu link, phone and ratings will be used
+    ///because we want to store our data for boba consistently to be able
+    ///to implement CRUDi methods when needed.
+    ///</summary>
     public class ProductModel
     {
-        //Defining the various attributes that a Product Model holds
+        //Defining the various attributes that a Product Model holds for the id
         public string Id { get; set; }
-        //Creates the maker for the store.
+        //Gets and sets the maker for the store.
         public string Maker { get; set; }
         
-        //Provides image for the store.
+        //Gets and sets image for the store.
         public string Image { get; set; }
-        //Creates a link for the store.
+        //Gets and sets a link for the store.
         public string Url { get; set; }
         //Provides a title for the store
-       
+
+        //Gets and sets product type enum for the products.
         public ProductTypeEnum ProductType { get; set; } = ProductTypeEnum.Undefined;
 
+        //Gets and sets the store title.
         public string Title { get; set; }
         //Provides a description about the boba store.
         public string Description { get; set; }
@@ -37,6 +39,11 @@ namespace ContosoCrafts.WebSite.Models
         //Provides the ratings of a store.
         public int[] Ratings { get; set; }
 
+        /// <summary>
+        /// Overrides in order to serialize the product model of
+        /// the jsole serializer class.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString() =>
             JsonSerializer.Serialize<ProductModel>(this);
 
