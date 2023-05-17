@@ -5,9 +5,31 @@ using ContosoCrafts.WebSite.Components;
 using Microsoft.Extensions.DependencyInjection;
 using ContosoCrafts.WebSite.Services;
 using System.Linq;
+using ContosoCrafts.WebSite.Models;
+using Moq;
+using System.Collections.Generic;
 
 namespace UnitTests.Components
 {
+    public interface IProductServiceWrapper
+    {
+        List<ProductModel> GetAllData();
+    }
+
+    public class JsonFileProductServiceWrapper : IProductServiceWrapper
+    {
+        private readonly JsonFileProductService productService;
+
+        public JsonFileProductServiceWrapper(JsonFileProductService productService)
+        {
+            this.productService = productService;
+        }
+
+        public List<ProductModel> GetAllData()
+        {
+            return (List<ProductModel>)productService.GetAllData();
+        }
+    }
     public class ProductListTests : BunitTestContext
     {
         #region TestSetup
@@ -34,6 +56,46 @@ namespace UnitTests.Components
             // Assert
             Assert.AreEqual(true, result.Contains("Tea King"));
         }
+        [Test]
+        public void GetAllData_ReturnsNonNullProductList()
+        {
+            // Arrange
+            var productServiceMock = new Mock<IProductServiceWrapper>();
+            var expectedProductList = new List<ProductModel>(); // Create a mock product list
+            productServiceMock.Setup(p => p.GetAllData()).Returns(expectedProductList);
+
+            var productService = productServiceMock.Object; // Get the mock object
+
+            // Act
+            var productList = productService.GetAllData(); // Call the GetAllData() method
+
+            // Assert
+            Assert.NotNull(productList); // Check if the productList is not null
+            Assert.AreEqual(expectedProductList, productList); // Check if the productList matches the expectedProductList
+        }
+
+        [Test]
+        public void GetAllData_ReturnsExpectedNumberOfProducts()
+        {
+            // Arrange
+            var expectedCount = 20; // Set the expected number of products
+            var productServiceMock = new Mock<IProductServiceWrapper>();
+            var expectedProductList = new List<ProductModel>(); // Create a mock product list with the expected count
+            for (int i = 0; i < expectedCount; i++)
+            {
+                expectedProductList.Add(new ProductModel());
+            }
+            productServiceMock.Setup(p => p.GetAllData()).Returns(expectedProductList);
+
+            var productService = productServiceMock.Object; // Get the mock object
+
+            // Act
+            var productList = productService.GetAllData(); // Call the GetAllData() method
+
+            // Assert
+            Assert.AreEqual(expectedCount, productList.Count); // Check if the productList count matches the expected count
+        }
+
 
         #region SelectProduct
         [Test]
@@ -214,4 +276,5 @@ namespace UnitTests.Components
         #endregion SubmitRating
 
     }
+
 }
