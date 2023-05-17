@@ -4,47 +4,51 @@ using NUnit.Framework;
 
 namespace UnitTests
 {
-    // <summary>
-    // The purpose of this class is to test the TestFixture
-    // because we want to run a 100% test coverage for our
-    // unit test.
-    // </summary>
+    /// <summary>
+    /// The purpose of this class is to test the TestFixture
+    /// because we want to run a 100% test coverage for our
+    /// unit test.
+    /// </summary>
     [SetUpFixture]
     public class TestFixture
     {
-        // Path to the Web Root
+        /// Path to the Web Root
         public static string DataWebRootPath = "./wwwroot";
 
-        // Path to the data folder for the content
+        /// Path to the data folder for the content
         public static string DataContentRootPath = "./data/";
 
         [OneTimeSetUp]
         public void RunBeforeAnyTests()
         {
-            // Run this code once when the test harness starts up.
+            /// Run this code once when the test harness starts up.
 
-            // This will copy over the latest version of the database files
+            /// This will copy over the latest version of the database files
 
             var DataWebPath = "../../../../src/bin/Debug/net6.0/wwwroot/data";
             var DataUTDirectory = "wwwroot";
             var DataUTPath = DataUTDirectory + "/data";
 
-            // Delete the Detination folder
+            /// Delete the Detination folder
             if (Directory.Exists(DataUTDirectory))
             {
+                //If destination folder exists, delete it.
                 Directory.Delete(DataUTDirectory, true);
             }
 
-            // Make the directory
+            /// Make the directory
             Directory.CreateDirectory(DataUTPath);
 
-            // Copy over all data files
+            /// Copy over all data files
             var filePaths = Directory.GetFiles(DataWebPath);
             foreach (var filename in filePaths)
             {
+                //Sets path name in to a string.
                 string OriginalFilePathName = filename.ToString();
+                //Sets a new file path
                 var newFilePathName = OriginalFilePathName.Replace(DataWebPath, DataUTPath);
 
+                /// Copies over all the data files.
                 File.Copy(OriginalFilePathName, newFilePathName);
             }
         }
