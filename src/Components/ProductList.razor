@@ -15,76 +15,77 @@
 
 </div>
 
+<hr />
+
+
+<div>
+    <div class="row">
+        <div class="col">
+            <label>Filter by Neighborhood</label>
+            <select id="neighborhoodSelect" @onchange="(e => UpdateNeighborhoodFilterText(e.Value.ToString()))">
+                <option value="">All</option>
+                <option value="University District">University District</option>
+                <option value="International District">International District</option>
+                <option value="South Lake Union">South Lake Union</option>
+                <option value="West Lake">West Lake</option>
+                <option value="Queen Anne">Queen Anne</option>
+                <option value="Capitol Hill">Capitol Hill</option>
+                <option value="Fremont">Fremont</option>
+            </select>
+        </div>
+    </div>
+</div>
+
 <div class="container-fluid">
     @{
         var productList = ProductService.GetAllData();
 
+        // Order the list alphabetical
+        productList = productList.OrderBy(m => m.Title);
 
-
-        /*
-        * 
-        Change the grouping sort order to be
-        Order by ProductType
-        Then order by ProductList Alphabetic within the Product data set
-
-
-
-        */
-
-
-
-        // Group by the Enum
-        foreach (ProductTypeEnum productType in Enum.GetValues(typeof(ProductTypeEnum)))
+        // If filter is enabled, reduce the data set to the filter string
+        if (FilterData && FilterNeighborhood)
         {
-            // Get only the products that are of this enum type
-            var productListGroup = productList.Where(m => m.ProductType == productType);
-
-
-
-            // Order the list alphabetical
-            productListGroup = productListGroup.OrderBy(m => m.Title);
-
-
-
-            // If filter is enabled, reduce the data set to the filter string
-            if (FilterData)
-            {
-                productListGroup = productListGroup.Where(m => m.Title.Contains(FilterDataString));
-            }
-
-
-
-            if (productListGroup.Any())
-            {
-
-
-
-                <hr />
-                <h2>@productType.DisplayName()</h2>
-
-
-
-                <div class="row">
-                    <div class="card-columns">
-                        @foreach (var product in productListGroup)
-                        {
-                            <div class="card">
-                                <div class="card-img" style="background-image: url('@product.Image');">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title">@product.Title</h5>
-                                </div>
-                                <div class="card-footer">
-                                    <small class="text-muted">
-                                        <button @onclick="(e => SelectProduct(product.Id))" id="MoreInfoButton_@product.Id" data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
-                                    </small>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
-            }
+            productList = productList.Where(m => m.Title.Contains(FilterDataString));
+            productList = productList.Where(m => m.Neighborhood.Contains(FilterNeighborhoodString));
         }
+
+        else if (FilterData && !FilterNeighborhood)
+        {
+            productList = productList.Where(m => m.Title.Contains(FilterDataString));
+        }
+
+        else if(!FilterData && FilterNeighborhood)
+        {
+            productList = productList.Where(m => m.Neighborhood.Contains(FilterNeighborhoodString));
+        }
+
+        if (productList.Any())
+        {
+
+            <hr />
+
+            <div class="row">
+                <div class="card-columns">
+                    @foreach (var product in productList)
+                    {
+                        <div class="card">
+                            <div class="card-img" style="background-image: url('@product.Image');">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">@product.Title</h5>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">
+                                    <button @onclick="(e => SelectProduct(product.Id))" id="MoreInfoButton_@product.Id" data-toggle="modal" data-target="#productModal" class="btn btn-primary">More Info</button>
+                                </small>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+        
     }
 </div>
 
@@ -146,9 +147,9 @@
 
     void SelectProduct(string productId)
     {
-      selectedProductId = productId;
-      selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
-      GetCurrentRating();
+        selectedProductId = productId;
+        selectedProduct = ProductService.GetProducts().First(x => x.Id == productId);
+        GetCurrentRating();
     }
 
     int currentRating = 0;
@@ -157,33 +158,48 @@
 
     void GetCurrentRating()
     {
-      if(selectedProduct.Ratings == null)
-      {
-        currentRating = 0;
-        voteCount = 0;
-      }
-      else
-      {
-        voteCount = selectedProduct.Ratings.Count();
-        voteLabel = voteCount > 1 ? "Votes" : "Vote";
-        currentRating = selectedProduct.Ratings.Sum() / voteCount;
-      }
+        if(selectedProduct.Ratings == null)
+        {
+            currentRating = 0;
+            voteCount = 0;
+        }
+        else
+        {
+            voteCount = selectedProduct.Ratings.Count();
+            voteLabel = voteCount > 1 ? "Votes" : "Vote";
+            currentRating = selectedProduct.Ratings.Sum() / voteCount;
+        }
 
-      System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
+        System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
     }
 
     void SubmitRating(int rating)
     {
-      System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
-      ProductService.AddRating(selectedProductId, rating);
-      SelectProduct(selectedProductId);
+        System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
+        ProductService.AddRating(selectedProductId, rating);
+        SelectProduct(selectedProductId);
     }
     string FilterDataString = "";
+    string FilterNeighborhoodString = "";
     bool FilterData = false;
-    
+    bool FilterNeighborhood = false;
+
     void UpdateFilterText(string text)
     {
         FilterDataString = text;
+    }
+    void UpdateNeighborhoodFilterText(string text)
+    {
+        FilterNeighborhoodString = text;
+        //Set filter neighborhood flag to true only if a neighborhood is selected in dropdown
+        if(FilterNeighborhoodString != "")
+        {
+            FilterNeighborhood = true;
+        }
+        else
+        {
+            FilterNeighborhood = false;
+        }
     }
     void EnableFilterData()
     {
@@ -194,5 +210,6 @@
     {
         // If the Filter is enabled, set the filter flag
         FilterData = false;
+        FilterNeighborhood = false;
     }
 }
