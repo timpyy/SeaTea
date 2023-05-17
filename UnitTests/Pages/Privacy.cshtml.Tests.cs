@@ -8,11 +8,11 @@ using ContosoCrafts.WebSite.Pages;
 
 namespace UnitTests.Pages.Privacy
 {
-    //<summary>
-    //The purpose of this class is to run a Privacy test
-    //on the Privacy method because we want to have a 100%
-    //coverage for our unit tests.
-    //</summary>
+    ///<summary>
+    ///The purpose of this class is to run a Privacy test
+    ///on the Privacy method because we want to have a 100%
+    ///coverage for our unit tests.
+    ///</summary>
     public class PrivacyTests
     {
         #region TestSetup
@@ -22,8 +22,10 @@ namespace UnitTests.Pages.Privacy
         [SetUp]
         public void TestInitialize()
         {
+            // MocklOGGER is set to the of Mock of ILogger Privacy model.
             var MockLoggerDirect = Mock.Of<ILogger<PrivacyModel>>();
 
+            /// Initiates privcy model to use test helper.
             pageModel = new PrivacyModel(MockLoggerDirect, TestHelper.ProductService)
             {
             };
@@ -33,17 +35,18 @@ namespace UnitTests.Pages.Privacy
 
         #region OnGet
         [Test]
-        //Runs the unit test.
+        ///Runs the unit test.
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
-            // Arrange
+            /// Arrange
 
-            // Act
+            /// Act
             pageModel.OnGet();
 
-            // Reset
+            /// Reset
 
-            // Assert
+            /// Assert
+            /// Validates to see if input data is valid.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
         }
 
