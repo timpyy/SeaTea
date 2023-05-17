@@ -19,17 +19,18 @@ namespace UnitTests.Pages.Product.Read
     {
 
         #region TestSetup
-        //Sets up the testing environment
+        /// <summary>
+        /// Sets up the testing environment
+        /// </summary>
         public static ReadModel pageModel;
 
 
-
         [SetUp]
-        //Initilizes the unit test using the TestHelper class.
+        ///Initilizes the unit test using the TestHelper class.
         public void TestInitialize()
 
         {
-
+            ///Initializes test using the read model.
             pageModel = new ReadModel(TestHelper.ProductService)
 
             {
@@ -37,31 +38,23 @@ namespace UnitTests.Pages.Product.Read
             };
 
         }
-
-
-
         #endregion TestSetup
-
-
-
         #region OnGet
 
         [Test]
-        //Applies Unit Tests to the read method for the website. 
+        ///Applies Unit Tests to the read method for the website. 
         public void OnGet_Valid_Should_Return_Products()
 
         {
 
-            // Arrange
+            /// Arrange
 
-            // Act
-
+            /// Act
             pageModel.OnGet("Boba Up");
 
-            // Assert
-
+            /// Assert
+            /// Validates to see if input data is valid.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-
             Assert.AreEqual("Boba Up - Self Serve", pageModel.Product.Title);
 
         }
