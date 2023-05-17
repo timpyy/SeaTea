@@ -11,7 +11,12 @@ using System.Collections.Generic;
 
 namespace UnitTests.Components
 {
-    
+
+    /// <summary>
+    /// The purpose of this class file is to unit test
+    /// ProductList Razor file because we want to be able
+    /// to hit 100% on all of our unit testing in our file.
+    /// </summary>
     public class ProductListTests : BunitTestContext
     {
         #region TestSetup
@@ -24,6 +29,7 @@ namespace UnitTests.Components
         #endregion TestSetup
 
         [Test]
+        ///Ensures that the product list by defaults returns the context.
         public void ProductList_Default_Should_Return_Content()
         {
             // Arrange
@@ -146,17 +152,16 @@ namespace UnitTests.Components
         [Test]
         public void SubmitRating_Valid_ID_Click_Stared_Should_Increment_Count_And_Leave_Star_Check_Remaining()
         {
-            /*
-             This test tests that the SubmitRating will change the vote as well as the Star checked
-             Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
-
-            The test needs to open the page
-            Then open the popup on the card
-            Then record the state of the count and star check status
-            Then check a star
-            Then check again the state of the cound and star check status
-
-            */
+            
+            /// This test tests that the SubmitRating will change the vote as well as the Star checked
+            /// Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
+            //The test needs to open the page
+            ///Then open the popup on the card
+            ///Then record the state of the count and star check status
+            ///Then check a star
+            ///Then check again the state of the cound and star check status
+            ///
+            
 
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
