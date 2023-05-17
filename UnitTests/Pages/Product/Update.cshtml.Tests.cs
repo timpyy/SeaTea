@@ -40,7 +40,7 @@ namespace UnitTests.Pages.Product.Update
         #region OnGet
 
         [Test]
-        //Applies Unit Tests to the update method for the website.
+        ///Applies Unit Tests to the update method for the website.
         public void OnGet_Valid_Should_Return_Products()
 
         {
@@ -63,13 +63,13 @@ namespace UnitTests.Pages.Product.Update
 
         [Test]
 
-        //Applies Unit Tests to the read method for the website if onpost
-        //is valid.
+        ///Applies Unit Tests to the read method for the website if onpost
+        ///is valid.
         public void OnPost_Valid_Should_Return_Products()
 
         {
 
-            // Arrange
+            /// Arrange
             pageModel.Product = new ProductModel
 
             {
