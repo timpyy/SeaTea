@@ -222,7 +222,24 @@ namespace UnitTests.Components
             Assert.AreEqual(false, preVoteCountString.Equals(postVoteCountString));
         }
         #endregion SubmitRating
+        [Test]
+        public void SubmitFilter_is_Valid_Input()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var input = "Tea King";
 
+            var page = RenderComponent<ProductList>();
+
+            // Find the Filter Input
+            var inputBar = page.Find("input[type='text']");
+            inputBar.Change(input);
+
+            // Act
+
+            // Assert
+            Assert.AreEqual(input, inputBar.GetAttribute("value"));
+        }
     }
 
 }
