@@ -17,8 +17,17 @@ namespace ContosoCrafts.WebSite.Pages
     //index into the page.
     public class IndexModel : PageModel
     {
+        /// <summary>
+        /// Creates a read only ilogger index model file.
+        /// </summary>
         private readonly ILogger<IndexModel> _logger;
 
+        /// <summary>
+        /// Index model is set to encapsulate the index model of
+        /// iLogger in order to instantitate product service.
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="productService"></param>
         public IndexModel(ILogger<IndexModel> logger,
             JsonFileProductService productService)
         {
@@ -26,11 +35,16 @@ namespace ContosoCrafts.WebSite.Pages
             ProductService = productService;
         }
 
+        ///Json file product service is returned.
         public JsonFileProductService ProductService { get; }
+
         public IEnumerable<ProductModel> Products { get; private set; }
 
+        ///OnGet every product is set to be equal to the products
         public void OnGet()
         {
+            ///Products is set equal to get products for all products
+            ///in product service.
             Products = ProductService.GetProducts();
         }
     }
