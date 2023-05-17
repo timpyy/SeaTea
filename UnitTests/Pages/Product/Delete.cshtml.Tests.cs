@@ -9,24 +9,26 @@ using ContosoCrafts.WebSite.Models;
 
 namespace UnitTests.Pages.Product.Delete
 {
-    //<summary>
-    //The purpose of this class is to run a unit test
-    //on the Delete method because we want to have a 100%
-    //coverage for our unit tests.
-    //</summary>
+    ///<summary>
+    ///The purpose of this class is to run a unit test
+    ///on the Delete method because we want to have a 100%
+    ///coverage for our unit tests.
+    ///</summary>
     public class DeleteTests
     {
         #region TestSetup
 
-        //Sets up the testing environment
+        ///Sets up the testing environment
         public static DeleteModel pageModel;
 
 
-        //Inititates pagemodel to a Delete Model object
+        /// <summary>
+        /// Inititates pagemodel to a Delete Model object
+        /// </summary>
         [SetUp]
         public void TestInitialize()
         {
-            //Initilizes the unit test using the TestHelper class.
+            ///Initilizes the unit test using the TestHelper class.
             pageModel = new DeleteModel(TestHelper.ProductService)
             {
             };
@@ -36,19 +38,16 @@ namespace UnitTests.Pages.Product.Delete
 
         #region OnGet
         [Test]
-        //Applies Unit Tests to the delete method for the website. 
+        ///Applies Unit Tests to the delete method for the website. 
         public void OnGet_Valid_Should_Return_Products()
         {
-            // Arrange
+            /// Arrange
 
-
-
-            // Act
+            /// Act
             pageModel.OnGet("Boba Up");
 
-
-
-            // Assert
+            /// Assert
+            /// Validates to see if input data is valid.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual("Boba Up - Self Serve", pageModel.Product.Title);
         }
@@ -61,28 +60,25 @@ namespace UnitTests.Pages.Product.Delete
         public void OnPostAsync_Valid_Should_Return_Products()
         {
             // Arrange
-
-
-
-            // First Create the product to delete
+            /// First Create the product to delete
             pageModel.Product = TestHelper.ProductService.CreateData();
             pageModel.Product.Title = "Example to Delete";
             TestHelper.ProductService.UpdateData(pageModel.Product);
 
 
 
-            // Act
+            /// Act
             var result = pageModel.OnPost() as RedirectToPageResult;
 
 
 
-            // Assert
+            /// Assert
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
             Assert.AreEqual(true, result.PageName.Contains("Index"));
 
 
 
-            // Confirm the item is deleted
+            /// Confirm the item is deleted
             Assert.AreEqual(null, TestHelper.ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(pageModel.Product.Id)));
         }
 
@@ -91,7 +87,7 @@ namespace UnitTests.Pages.Product.Delete
         [Test]
         public void OnPostAsync_InValid_Model_NotValid_Return_Page()
         {
-            // Arrange
+            /// Arrange
             pageModel.Product = new ProductModel
             {
                 Id = "bogus",
@@ -101,19 +97,14 @@ namespace UnitTests.Pages.Product.Delete
                 Image = "bougs"
             };
 
-
-
-            // Force an invalid error state
+            /// Force an invalid error state
             pageModel.ModelState.AddModelError("bogus", "bogus error");
 
-
-
-            // Act
+            /// Act
             var result = pageModel.OnPost() as ActionResult;
 
-
-
-            // Assert
+            /// Assert
+            /// Validates to see if input data is valid.
             Assert.AreEqual(false, pageModel.ModelState.IsValid);
         }
         #endregion OnPostAsync
