@@ -16,17 +16,22 @@ namespace ContosoCrafts.WebSite
             Configuration = configuration;
         }
 
-        /// Gets tge class to configure the container.
+        /// Gets the class to configure the container.
         public IConfiguration Configuration { get; }
 
         /// This method gets called by the runtime. Use this method to add
         /// services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            ///Calls for add razor pages.
             services.AddRazorPages();
+            ///Calls for add server size blazor.
             services.AddServerSideBlazor();
+            ///Calls for the add http client.
             services.AddHttpClient();
+            ///Calls for the add controllers classes.
             services.AddControllers();
+            ///Includes the json file product service.
             services.AddTransient<JsonFileProductService>();
         }
 
@@ -36,6 +41,7 @@ namespace ContosoCrafts.WebSite
         {
             if (env.IsDevelopment())
             {
+                ///The exception dev page is use for exception as default.
                 app.UseDeveloperExceptionPage();
             }
             else
