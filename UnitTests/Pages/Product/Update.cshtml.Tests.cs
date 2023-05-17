@@ -8,27 +8,25 @@ using ContosoCrafts.WebSite.Models;
 namespace UnitTests.Pages.Product.Update
 
 {
-    //<summary>
-    //The purpose of this class is to run a update test
-    //on the update method because we want to have a 100%
-    //coverage for our unit tests.
-    //</summary>
+    ///<summary>
+    ///The purpose of this class is to run a update test
+    ///on the update method because we want to have a 100%
+    ///coverage for our unit tests.
+    ///</summary>
     public class UpdateTests
 
     {
 
         #region TestSetup
-        //Sets up the testing environment
+        ///Sets up the testing environment
         public static UpdateModel pageModel;
-
-
 
         [SetUp]
         //Initilizes the unit test using the TestHelper class.
         public void TestInitialize()
 
         {
-
+            ///Page model is instantiated to the updated model.
             pageModel = new UpdateModel(TestHelper.ProductService)
 
             {
@@ -37,11 +35,7 @@ namespace UnitTests.Pages.Product.Update
 
         }
 
-
-
         #endregion TestSetup
-
-
 
         #region OnGet
 
@@ -51,14 +45,11 @@ namespace UnitTests.Pages.Product.Update
 
         {
 
-            // Arrange
-
-            // Act
-
+            /// Arrange
+            /// Act
             pageModel.OnGet("Boba Up");
-
-            // Assert
-
+            /// Assert
+            /// Validates to see if input data is valid.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
 
             Assert.AreEqual("Boba Up - Self Serve", pageModel.Product.Title);
@@ -79,35 +70,32 @@ namespace UnitTests.Pages.Product.Update
         {
 
             // Arrange
-
             pageModel.Product = new ProductModel
 
             {
-
+                // ID is tested for boba up.
                 Id = "Boba Up",
-
+                // Title model is set to title.
                 Title = "title",
-
+                // Description model is set to description.
                 Description = "description",
-
+                // Url model is set to url.
                 Url = "url",
-
+                // Image model is set to image.
                 Image = "image"
 
             };
 
 
 
-            // Act
-
+            /// Act
             var result = pageModel.OnPost() as RedirectToPageResult;
 
 
 
-            // Assert
-
+            /// Assert
+            /// Validates to see if input data is valid.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-
             Assert.AreEqual(true, result.PageName.Contains("Index"));
 
         }
@@ -116,30 +104,26 @@ namespace UnitTests.Pages.Product.Update
 
         [Test]
 
-        //Applies Unit Tests to the read method for the website if
-        //the onpost is invalid.
+        ///Applies Unit Tests to the read method for the website if
+        ///the onpost is invalid.
         public void OnPost_InValid_Model_NotValid_Return_Page()
 
         {
 
             // Arrange
 
-
-
-            // Force an invalid error state
-
+            /// Force an invalid error state
             pageModel.ModelState.AddModelError("bogus", "bogus error");
 
 
 
-            // Act
-
+            /// Act
             var result = pageModel.OnPost() as ActionResult;
 
 
 
-            // Assert
-
+            /// Assert
+            /// Validates to see if input data is valid.
             Assert.AreEqual(false, pageModel.ModelState.IsValid);
 
         }
