@@ -9,27 +9,41 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace ContosoCrafts.WebSite.Services
 {
+    /// <summary>
+    /// The purpose of this class is to set a json file product service
+    /// that creates a web host environment.
+    /// </summary>
     public class JsonFileProductService
     {
-        //Create JsonFileProductService on the webHostEnvironment
+        /// <summary>
+        /// Create JsonFileProductService on the webHostEnvironment
+        /// </summary>
+        /// <param name="webHostEnvironment"></param>
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
+            ///Webhost environment is called. 
             WebHostEnvironment = webHostEnvironment;
         }
 
-        //Define a getter for WebHostEnvironment
+        ///Define a getter for WebHostEnvironment
         public IWebHostEnvironment WebHostEnvironment { get; }
 
-        //Establish the file path to products.json, where all the products are stored
+        ///Establish the file path to products.json, where all the products are stored
         private string JsonFileName
         {
+            ///Returns the root path of the web
             get { return Path.Combine(WebHostEnvironment.WebRootPath, "data", "products.json"); }
         }
-        //Method that goes through products.json and deserializes/returns all product data that is contained within
+        /// <summary>
+        /// Method that goes through products.json and deserializes/returns all
+        /// product data that is contained within
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ProductModel> GetAllData()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
+                ///Deserializes the product data that is contained.
                 return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
@@ -38,11 +52,12 @@ namespace ContosoCrafts.WebSite.Services
             }
         }
 
-        //Method that returns all ProductModel objects from products.json
+        ///Method that returns all ProductModel objects from products.json
         public IEnumerable<ProductModel> GetProducts()
         {
             using (var jsonFileReader = File.OpenText(JsonFileName))
             {
+                ///Retuns all the product model objects from products json.
                 return JsonSerializer.Deserialize<ProductModel[]>(jsonFileReader.ReadToEnd(),
                     new JsonSerializerOptions
                     {
