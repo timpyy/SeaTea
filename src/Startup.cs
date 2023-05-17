@@ -7,8 +7,8 @@ using Microsoft.Extensions.Hosting;
 
 namespace ContosoCrafts.WebSite
 {
-    // The purpose of this class is to provide a startup
-    // framework to be called at runtime to run the program.
+    /// The purpose of this class is to provide a startup
+    /// framework to be called at runtime to run the program.
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -16,10 +16,11 @@ namespace ContosoCrafts.WebSite
             Configuration = configuration;
         }
 
+        /// Gets tge class to configure the container.
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add
-        // services to the container.
+        /// This method gets called by the runtime. Use this method to add
+        /// services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
@@ -29,8 +30,8 @@ namespace ContosoCrafts.WebSite
             services.AddTransient<JsonFileProductService>();
         }
 
-        // This method gets called by the runtime.
-        // Use this method to configure the HTTP request pipeline.
+        /// This method gets called by the runtime.
+        /// Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -40,22 +41,22 @@ namespace ContosoCrafts.WebSite
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days.
-                // You may want to change this for production scenarios,
-                // see https://aka.ms/aspnetcore-hsts.
+                /// The default HSTS value is 30 days.
+                /// You may want to change this for production scenarios,
+                /// see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
-            //Calls the https redirection method from app.
+            ///Calls the https redirection method from app.
             app.UseHttpsRedirection();
-            //Calls the useStaticFiles method from app.
+            ///Calls the useStaticFiles method from app.
             app.UseStaticFiles();
-            //Routes the application.
+            ///Routes the application.
             app.UseRouting();
-            //Authorizes the application using use authorization method.
+            ///Authorizes the application using use authorization method.
             app.UseAuthorization();
 
-            //Creates end points because the start up needs to end.
+            ///Creates end points because the start up needs to end.
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
