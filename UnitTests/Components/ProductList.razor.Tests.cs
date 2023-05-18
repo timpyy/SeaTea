@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TestContext = Bunit.TestContext;
+using Castle.DynamicProxy;
 
 namespace UnitTests.Components
 {
@@ -261,10 +262,33 @@ namespace UnitTests.Components
             filterButton.Click();
             var filterMarkup = page.Markup;
 
-            
+
 
             // Assert
             Assert.IsTrue(filterMarkup.Contains(input));
+        }
+        [Test]
+        public void Clear_Input_Filter_Is_Valid()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var input = "Tea King";
+            var otherStore = "Ding Tea";
+            var page = RenderComponent<ProductList>();
+            // Find the Filter Input
+            var inputBar = page.Find("input[type='text']");
+            var filterButton = page.Find("button.btn-success");
+            inputBar.Change(input);
+            filterButton.Click();
+            var filterMarkup = page.Markup;
+            var clearButton = page.Find("button.btn-danger");
+
+            // Act
+            clearButton.Click();
+            var clearMarkup = page.Markup;
+
+            // Assert
+            Assert.IsTrue(clearMarkup.Contains(otherStore));
 
         }
     }
