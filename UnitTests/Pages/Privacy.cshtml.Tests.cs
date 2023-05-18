@@ -18,14 +18,14 @@ namespace UnitTests.Pages.Privacy
         #region TestSetup
         public static PrivacyModel pageModel;
 
-        //Initializes the test for setup using the MockLoggerDirect.
+        ///Initializes the test for setup using the MockLoggerDirect.
         [SetUp]
         public void TestInitialize()
         {
             // MocklOGGER is set to the of Mock of ILogger Privacy model.
             var MockLoggerDirect = Mock.Of<ILogger<PrivacyModel>>();
 
-            /// Initiates privcy model to use test helper.
+            // Initiates privcy model to use test helper.
             pageModel = new PrivacyModel(MockLoggerDirect, TestHelper.ProductService)
             {
             };
@@ -35,18 +35,18 @@ namespace UnitTests.Pages.Privacy
 
         #region OnGet
         [Test]
-        ///Runs the unit test.
+        ///Runs a unit test on the return value for privacy on get function
         public void OnGet_Valid_Activity_Set_Should_Return_RequestId()
         {
-            /// Arrange
+            // Arrange
 
-            /// Act
+            // Act
             pageModel.OnGet();
 
-            /// Reset
+            // Reset
 
-            /// Assert
-            /// Validates to see if input data is valid.
+            // Assert
+            // Validates to see if input data is valid.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
         }
 
