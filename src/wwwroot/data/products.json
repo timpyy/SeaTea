@@ -99,7 +99,7 @@
     "Title": "TP Tea",
     "Description": "Location: 679 S King St, Seattle, WA 98104",
     "Neighborhood": "International District",
-    "OnlineMenuLink": null,
+    "OnlineMenuLink": "https://en.tp-tea.com/menu/",
     "Phone": null,
     "Ratings": null,
     "CommentList": []
