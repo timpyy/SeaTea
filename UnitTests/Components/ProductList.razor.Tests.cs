@@ -311,6 +311,30 @@ namespace UnitTests.Components
 
 
         }
+        [Test]
+        public void Neighborhood_Filter_With_Input_Filter_Valid()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var page = RenderComponent<ProductList>();
+            var neighborhoodInput = "International District";
+            var input = "TP Tea";
+            var neighborhoodOptions = page.Find("#neighborhoodSelect");
+            var selectNeighborhood = neighborhoodOptions.Children[2];
+
+            // Act
+            neighborhoodOptions.Change(neighborhoodInput);
+            var neighborhoodFilter = page.Markup;
+            var inputBar = page.Find("input[type='text']");
+            var filterButton = page.Find("button.btn-success");
+            inputBar.Change(input);
+            var inputFilter = page.Markup;
+
+            // Assert
+            Assert.IsTrue(inputFilter.Contains(input));
+
+
+        }
     }
 
 
