@@ -112,6 +112,78 @@
           </div>
         </div>
         <div class="modal-footer">
+                    <div class="row">
+
+                        <div class="col">
+
+                            @{
+
+                                // First show all the existing comments
+
+                                foreach (var comment in selectedProduct.CommentList)
+
+                                {
+
+                                    <div class="row">
+
+                                        <div class="col">
+
+                                            @comment.Comment
+
+                                        </div>
+
+                                    </div>
+
+                                }
+
+
+
+                                // If this is a new comment, then add the Input boxes for it, else show the Add Comment Button
+
+                                if (NewComment)
+
+                                {
+
+                                    <div class="row">
+
+                                        <div class="col">
+
+                                            <input type="text" @onchange="(e) => UpdateCommentText(e.Value.ToString())" value="@NewCommentText" />
+
+                                            <button @onclick="(e => AddComment())" class="btn btn-success" data-toggle="modal">Save Comment</button>
+
+                                        </div>
+
+                                    </div>
+
+                                }
+
+
+
+                                // If this is not a new comment, then show the buttons for Adding comment and Close
+
+                                if (NewComment == false)
+
+                                {
+
+                                    <div class="row">
+
+                                        <div class="col">
+
+                                            <button @onclick="(e => ShowNewCommentInput())" id="AddComment" class="btn btn-primary">Add Comment</button>
+
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                        </div>
+
+                                    </div>
+
+                                }
+
+                            }
+
+                        </div>
+                    </div>
           @if(voteCount == 0)
           {
             <span>Be the first to vote!</span>
@@ -132,8 +204,10 @@
               <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
             }
           }
+                    
         </div>
       </div>
+        
     </div>
   </div>
 }
@@ -179,6 +253,29 @@
         ProductService.AddRating(selectedProductId, rating);
         SelectProduct(selectedProductId);
     }
+
+    bool NewComment = false;
+    string NewCommentText = "";
+    
+
+    void ShowNewCommentInput()
+    {
+        NewComment = true;
+    }
+        /// <param name="newCommentText"></param>
+    void UpdateCommentText(string newCommentText)
+    {
+        NewCommentText = newCommentText;
+    }
+
+        /// <param name="comment"></param>
+    void AddComment()
+    {
+        selectedProduct.CommentList.Add(new CommentModel() { Comment = NewCommentText });
+        ProductService.UpdateData(selectedProduct);
+        NewComment = false;
+    }
+
     string FilterDataString = "";
     string FilterNeighborhoodString = "";
     bool FilterData = false;
