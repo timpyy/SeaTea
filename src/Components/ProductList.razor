@@ -311,17 +311,25 @@
         NewComment = false;
     }
 
+    //Initialize FilterDataString that stores user input in the filter box
     string FilterDataString = "";
+    //Initialize FilterNeighborhoodString that updates to whatever neighborhood is selected in the dropdown
     string FilterNeighborhoodString = "";
+    //Initialize FilterData flag
     bool FilterData = false;
+    //Initialize FilterNeighborhood flag
     bool FilterNeighborhood = false;
 
+    /// <summary>
+    /// The purpose of this function is to update filter text from the text box
+    /// </summary>
+    /// <param name="text"></param>
     void UpdateFilterText(string text)
     {
         FilterDataString = text;
     }
     /// <summary>
-    /// The purpose of this class is to update the neighborhood filter text.
+    /// The purpose of this function is to update neighborhood filter text.
     /// </summary>
     /// <param name="text"></param>
     void UpdateNeighborhoodFilterText(string text)
