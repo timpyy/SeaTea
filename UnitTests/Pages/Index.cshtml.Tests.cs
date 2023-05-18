@@ -72,7 +72,7 @@ namespace UnitTests.Pages.Index
             /// Assert
             /// Validates to see if the input data are valid.
             Assert.AreEqual(true, pageModel.ModelState.IsValid);
-            Assert.AreEqual(23, pageModel.Products.Count());
+            Assert.AreEqual(25, pageModel.Products.Count());
             
         }
         #endregion OnGet
