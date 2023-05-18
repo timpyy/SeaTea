@@ -23,15 +23,15 @@ namespace ContosoCrafts.WebSite
         /// services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            ///Calls for add razor pages.
+            //Calls for add razor pages.
             services.AddRazorPages();
-            ///Calls for add server size blazor.
+            //Calls for add server size blazor.
             services.AddServerSideBlazor();
-            ///Calls for the add http client.
+            //Calls for the add http client.
             services.AddHttpClient();
-            ///Calls for the add controllers classes.
+            //Calls for the add controllers classes.
             services.AddControllers();
-            ///Includes the json file product service.
+            //Includes the json file product service.
             services.AddTransient<JsonFileProductService>();
         }
 
@@ -47,22 +47,22 @@ namespace ContosoCrafts.WebSite
             else
             {
                 app.UseExceptionHandler("/Error");
-                /// The default HSTS value is 30 days.
-                /// You may want to change this for production scenarios,
-                /// see https://aka.ms/aspnetcore-hsts.
+                // The default HSTS value is 30 days.
+                // You may want to change this for production scenarios,
+                // see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
-            ///Calls the https redirection method from app.
+            //Calls the https redirection method from app.
             app.UseHttpsRedirection();
-            ///Calls the useStaticFiles method from app.
+            //Calls the useStaticFiles method from app.
             app.UseStaticFiles();
-            ///Routes the application.
+            //Routes the application.
             app.UseRouting();
-            ///Authorizes the application using use authorization method.
+            //Authorizes the application using use authorization method.
             app.UseAuthorization();
 
-            ///Creates end points because the start up needs to end.
+            //Creates end points because the start up needs to end.
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
