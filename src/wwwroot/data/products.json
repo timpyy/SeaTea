@@ -184,7 +184,7 @@
     "Title": "The Moo Bar",
     "Description": "Location: 2124 Westlake Ave, Seattle, WA 98121",
     "Neighborhood": "South Lake Union",
-    "OnlineMenuLink": null,
+    "OnlineMenuLink": "https://themoobar.square.site/?shipping=true",
     "Phone": null,
     "Ratings": null,
     "CommentList": []
@@ -197,7 +197,7 @@
     "Title": "Yifang Taiwan Fruit Tea - Chinatown",
     "Description": "Location: 619 S King St, Seattle, WA 98104",
     "Neighborhood": "International District",
-    "OnlineMenuLink": null,
+    "OnlineMenuLink": "https://www.yifangteapnw.com/menu",
     "Phone": null,
     "Ratings": null,
     "CommentList": []
@@ -210,7 +210,7 @@
     "Title": "Mochinut",
     "Description": "Location: 400 Fairview Ave N #110, Seattle, WA 98109",
     "Neighborhood": "South Lake Union",
-    "OnlineMenuLink": null,
+    "OnlineMenuLink": "https://www.mochinut.com/donut-menu",
     "Phone": null,
     "Ratings": null,
     "CommentList": []
@@ -243,7 +243,7 @@
     "Title": "Don\u0027t Yell at Me",
     "Description": "Location: 4511 University Way NE, Seattle, WA 98105",
     "Neighborhood": "University District",
-    "OnlineMenuLink": null,
+    "OnlineMenuLink": "https://www.yelp.com/menu/dont-yell-at-me-seattle",
     "Phone": "2065880719",
     "Ratings": [
       5,
