@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -39,6 +40,10 @@ namespace ContosoCrafts.WebSite.Models
         /// the jsole serializer class.
         /// </summary>
         /// <returns></returns>
+        /// 
+
+        public List<CommentModel> CommentList { get; set; } = new List<CommentModel>();
+
         public override string ToString() =>
             JsonSerializer.Serialize<ProductModel>(this);
 
