@@ -4,9 +4,11 @@
 @inject JsonFileProductService ProductService
 
 
+
 <div>
     <div class="row">
         <div class="col">
+          
             <input type="text" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
             <button @onclick="(e => EnableFilterData())" class="btn btn-success">Filter</button>
             <button @onclick="(e => ClearFilterData())" class="btn btn-danger">Clear</button>
@@ -30,7 +32,7 @@
                 <option value="West Lake">West Lake</option>
                 <option value="Queen Anne">Queen Anne</option>
                 <option value="Capitol Hill">Capitol Hill</option>
-                <option value="Fremont">Fremont</option>
+                <option value="Fremont">Fremont</option> 
             </select>
         </div>
     </div>
@@ -38,12 +40,15 @@
 
 <div class="container-fluid">
     @{
+        
+        // Sets product list to get all data.
+
         var productList = ProductService.GetAllData();
 
-        // Order the list alphabetical
+        /// Order the list alphabetical
         productList = productList.OrderBy(m => m.Title);
 
-        // If filter is enabled, reduce the data set to the filter string
+        /// If filter is enabled, reduce the data set to the filter string
         if (FilterData && FilterNeighborhood)
         {
             productList = productList.Where(m => m.Title.Contains(FilterDataString));
@@ -216,9 +221,17 @@
 
 @code 
 {
+    // Selected Product is set to product model.
     ProductModel selectedProduct;
+    // Declares string for product id.
     string selectedProductId;
 
+    /// <summary>
+    /// The purpose of this file is to select a product
+    /// based off the id because we want to make sure we are updating
+    /// the right store.
+    /// </summary>
+    /// <param name="productId"></param>
     void SelectProduct(string productId)
     {
         selectedProductId = productId;
@@ -226,19 +239,27 @@
         GetCurrentRating();
     }
 
+    //Sets curr rating and votecount to 0.
     int currentRating = 0;
     int voteCount = 0;
     string voteLabel;
 
+    /// <summary>
+    /// The purpose of the class is to get the current rating
+    /// for a boba store.
+    /// </summary>
     void GetCurrentRating()
     {
         if(selectedProduct.Ratings == null)
         {
+            //Set current to 0.
             currentRating = 0;
+            //Set vote count to 0.
             voteCount = 0;
         }
         else
         {
+            //Else with the current ratings.
             voteCount = selectedProduct.Ratings.Count();
             voteLabel = voteCount > 1 ? "Votes" : "Vote";
             currentRating = selectedProduct.Ratings.Sum() / voteCount;
@@ -247,6 +268,11 @@
         System.Console.WriteLine($"Current rating for {selectedProduct.Id}: {currentRating}");
     }
 
+    /// <summary>
+    /// Becuase we want to update ratings, this class ensures that the new
+    /// rating is updated.
+    /// </summary>
+    /// <param name="rating"></param>
     void SubmitRating(int rating)
     {
         System.Console.WriteLine($"Rating received for {selectedProduct.Id}: {rating}");
@@ -254,23 +280,30 @@
         SelectProduct(selectedProductId);
     }
 
+    //Set new comment to false and as an empty string.
     bool NewComment = false;
     string NewCommentText = "";
     
-
+    /// <summary>
+    /// The purpose of this class is to show the new comment.
+    /// </summary>
     void ShowNewCommentInput()
     {
         NewComment = true;
     }
-        /// <param name="newCommentText"></param>
+    /// <param name="newCommentText"></param>
+    /// Updates the comment text
     void UpdateCommentText(string newCommentText)
     {
+        //Sets the comments.
         NewCommentText = newCommentText;
     }
 
-        /// <param name="comment"></param>
+   /// <param name="comment"></param>
+   /// The purpose of this file is to add comments to store.
     void AddComment()
     {
+        ///Add a new comment.
         selectedProduct.CommentList.Add(new CommentModel() { Comment = NewCommentText });
         ProductService.UpdateData(selectedProduct);
         NewComment = false;
@@ -285,24 +318,36 @@
     {
         FilterDataString = text;
     }
+    /// <summary>
+    /// The purpose of this class is to update the neighborhood filter text.
+    /// </summary>
+    /// <param name="text"></param>
     void UpdateNeighborhoodFilterText(string text)
     {
         FilterNeighborhoodString = text;
         //Set filter neighborhood flag to true only if a neighborhood is selected in dropdown
         if(FilterNeighborhoodString != "")
         {
+            //Filter neighbor hood is set to true.
             FilterNeighborhood = true;
         }
         else
         {
+            //Filter neighbor hood is set to false.
             FilterNeighborhood = false;
         }
     }
+    /// <summary>
+    /// The purpose of this class is to enable data filter.
+    /// </summary>
     void EnableFilterData()
     {
         // If the Filter is enabled, set the filter flag
         FilterData = true;
     }
+    /// <summary>
+    /// The purpose of this class is to enable the clear data filter.
+    /// </summary>
     void ClearFilterData()
     {
         // If the Filter is enabled, set the filter flag
