@@ -8,6 +8,9 @@ using System.Linq;
 using ContosoCrafts.WebSite.Models;
 using Moq;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using TestContext = Bunit.TestContext;
 
 namespace UnitTests.Components
 {
@@ -223,7 +226,7 @@ namespace UnitTests.Components
         }
         #endregion SubmitRating
         [Test]
-        public void SubmitFilter_is_Valid_Input()
+        public void FilterInput_IsValid()
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
@@ -240,6 +243,32 @@ namespace UnitTests.Components
             // Assert
             Assert.AreEqual(input, inputBar.GetAttribute("value"));
         }
+        [Test]
+        public void Filter_Input_Filter_Button_Page_Is_Valid()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var input = "Tea King";
+
+            var page = RenderComponent<ProductList>();
+
+            // Find the Filter Input
+            var inputBar = page.Find("input[type='text']");
+            var filterButton = page.Find("button.btn-success");
+            inputBar.Change(input);
+
+            // Act
+            filterButton.Click();
+            var filterMarkup = page.Markup;
+
+            
+
+            // Assert
+            Assert.IsTrue(filterMarkup.Contains(input));
+
+        }
     }
 
+
 }
+
