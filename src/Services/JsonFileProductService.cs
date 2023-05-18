@@ -21,7 +21,7 @@ namespace ContosoCrafts.WebSite.Services
         /// <param name="webHostEnvironment"></param>
         public JsonFileProductService(IWebHostEnvironment webHostEnvironment)
         {
-            ///Webhost environment is called. 
+            //Webhost environment is called. 
             WebHostEnvironment = webHostEnvironment;
         }
 
