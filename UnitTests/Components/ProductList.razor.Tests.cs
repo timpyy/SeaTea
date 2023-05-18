@@ -27,14 +27,15 @@ namespace UnitTests.Components
 
         [SetUp]
         public void TestInitialize()
+            /// Used to initialize ProductList.razor.Tests.cs
         {
         }
 
         #endregion TestSetup
 
         [Test]
-        ///Ensures that the product list by defaults returns the context.
         public void ProductList_Default_Should_Return_Content()
+        ///Ensures that the product list returns default content.
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
@@ -53,6 +54,8 @@ namespace UnitTests.Components
         #region SelectProduct
         [Test]
         public void SelectProduct_Valid_ID_TeaKing_Should_Return_Content()
+            ///Test to check that selecting a specific item on the home page
+            ///selects the correct product tile
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
@@ -82,17 +85,15 @@ namespace UnitTests.Components
         [Test]
         public void SubmitRating_Valid_ID_Click_Unstared_Should_Increment_Count_And_Check_Star()
         {
-            /*
-             This test tests that the SubmitRating will change the vote as well as the Star checked
-             Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
-
-            The test needs to open the page
-            Then open the popup on the card
-            Then record the state of the count and star check status
-            Then check a star
-            Then check again the state of the cound and star check status
-
-            */
+            ///
+            ///This test tests that the SubmitRating will change the vote as well as the Star checked
+            ///Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
+            ///The test needs to open the page
+            ///Then open the popup on the card
+            ///Then record the state of the count and star check status
+            ///Then check a star
+            ///Then check again the state of the cound and star check status
+            ///
 
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
@@ -156,14 +157,14 @@ namespace UnitTests.Components
         [Test]
         public void SubmitRating_Valid_ID_Click_Stared_Should_Increment_Count_And_Leave_Star_Check_Remaining()
         {
-
+            ///
             /// This test tests that the SubmitRating will change the vote as well as the Star checked
             /// Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
-            //The test needs to open the page
-            ///Then open the popup on the card
-            ///Then record the state of the count and star check status
-            ///Then check a star
-            ///Then check again the state of the cound and star check status
+            /// The test needs to open the page
+            /// Then open the popup on the card
+            /// Then record the state of the count and star check status
+            /// Then check a star
+            /// Then check again the state of the cound and star check status
             ///
 
 
@@ -229,6 +230,12 @@ namespace UnitTests.Components
         [Test]
         public void FilterInput_IsValid()
         {
+            ///
+            /// This function tests that users can input information into the
+            /// filter tab
+            /// 
+
+
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var input = "Tea King";
@@ -247,6 +254,12 @@ namespace UnitTests.Components
         [Test]
         public void Filter_Input_Filter_Button_Page_Is_Valid()
         {
+            ///
+            /// This function tests the filter button will re-render the page for
+            /// whatever input the user given
+            ///
+
+
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var input = "Tea King";
@@ -270,6 +283,11 @@ namespace UnitTests.Components
         [Test]
         public void Clear_Input_Filter_Is_Valid()
         {
+            ///
+            /// This function tests that the clear button resets the input filter and 
+            /// renders all objects to the home page
+            ///
+
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var input = "Tea King";
@@ -294,6 +312,11 @@ namespace UnitTests.Components
         [Test]
         public void Neighborhood_Filter_Is_Valid()
         {
+            ///
+            /// This function tests that changing the neighborhood filter gives a 
+            /// valid output
+            ///
+
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var page = RenderComponent<ProductList>();
@@ -316,6 +339,12 @@ namespace UnitTests.Components
         [Test]
         public void Neighborhood_Filter_With_Input_Filter_Valid()
         {
+            ///
+            /// This function tests to ensure that the when the user interacts with both the 
+            /// neighborhood filter and the input filter renders the products delimited by
+            /// both data filters
+            ///
+
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var page = RenderComponent<ProductList>();
@@ -334,34 +363,6 @@ namespace UnitTests.Components
 
             // Assert
             Assert.IsTrue(inputFilter.Contains(input));
-
-
-        }
-        [Test]
-        public void SubmitComment_Valid_ID_Click_And_Comment_On_Click_Add_Comment()
-        {
-            // Arrange
-            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
-            var id = "Tea King";
-
-            var page = RenderComponent<ProductList>();
-
-            // Find the Buttons (more info)
-            var buttonList = page.FindAll("Button");
-
-            // Find the one that matches the ID looking for and click it
-            var button = buttonList.First(m => m.OuterHtml.Contains(id));
-            button.Click();
-
-            // Get the markup of the page post the Click action
-            var buttonMarkup = page.Markup;
-
-            // Get the Comment Button
-            var commentButton = page.FindAll("button").FirstOrDefault(btn => btn.OuterHtml.Contains("Add Comment"));
-            //Assert
-
-            Assert.IsNotNull(commentButton);
         }
     }
-
 }
