@@ -171,7 +171,7 @@
     "Title": "Drip Tea",
     "Description": "Location: 1416 10th Ave, Seattle, WA 98122",
     "Neighborhood": "Capitol Hill",
-    "OnlineMenuLink": null,
+    "OnlineMenuLink": "https://thedriptea.com/menu",
     "Phone": null,
     "Ratings": null,
     "CommentList": []
