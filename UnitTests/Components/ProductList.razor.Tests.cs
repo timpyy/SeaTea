@@ -298,6 +298,7 @@ namespace UnitTests.Components
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var page = RenderComponent<ProductList>();
             var storeInInternationalDistrict = "TP Tea";
+            var storeNotInNeighborhood = "Tea King";
             var input = "International District";
             var neighborhoodOptions = page.Find("#neighborhoodSelect");
             var selectNeighborhood = neighborhoodOptions.Children[2];
@@ -308,6 +309,7 @@ namespace UnitTests.Components
 
             // Assert
             Assert.IsTrue(neighborhoodFilter.Contains(storeInInternationalDistrict));
+            Assert.IsFalse(neighborhoodFilter.Contains(storeNotInNeighborhood));
 
 
         }
