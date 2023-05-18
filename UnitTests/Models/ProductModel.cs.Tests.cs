@@ -6,7 +6,7 @@ using ContosoCrafts.WebSite.Pages.Product;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 
-namespace UnitTests.Models.ProductModel
+namespace UnitTests.Models
 {
     //<summary>
     //The purpose of this class is to run a unit test
