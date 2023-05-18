@@ -291,6 +291,26 @@ namespace UnitTests.Components
             Assert.IsTrue(clearMarkup.Contains(otherStore));
 
         }
+        [Test]
+        public void Neighborhood_Filter_Is_Valid()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var page = RenderComponent<ProductList>();
+            var storeInInternationalDistrict = "TP Tea";
+            var input = "International District";
+            var neighborhoodOptions = page.Find("#neighborhoodSelect");
+            var selectNeighborhood = neighborhoodOptions.Children[2];
+
+            // Act
+            neighborhoodOptions.Change(input);
+            var neighborhoodFilter = page.Markup;
+
+            // Assert
+            Assert.IsTrue(neighborhoodFilter.Contains(storeInInternationalDistrict));
+
+
+        }
     }
 
 
