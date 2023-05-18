@@ -12,8 +12,8 @@ namespace ContosoCrafts.WebSite
     {
         public static void Main(string[] args)
         {
-            ///Crates a host for the web application
-            ///that uses the build to run classes
+            //Crates a host for the web application
+            //that uses the build to run classes
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -24,7 +24,7 @@ namespace ContosoCrafts.WebSite
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    ///Uses the startup method from webBuilder.
+                    //Uses the startup method from webBuilder.
                     webBuilder.UseStartup<Startup>();
                 });
     }
