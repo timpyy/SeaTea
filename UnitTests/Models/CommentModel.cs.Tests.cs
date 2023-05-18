@@ -1,69 +1,52 @@
-﻿using System.Linq;
-
+﻿using ContosoCrafts.WebSite.Models;
 using NUnit.Framework;
 
-using ContosoCrafts.WebSite.Pages.Product;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Newtonsoft.Json;
-
-namespace UnitTests.Models.CommentModel
+namespace UnitTests.Models
 {
-    //<summary>
-    //The purpose of this class is to run a unit test
-    //on the productModel object because we want to have a 100%
-    //coverage for our unit tests.
-    //</summary>
+    [TestFixture]
     public class CommentModelTests
     {
-        #region TestSetup
-        //Setup the testing environment
-        public static CreateModel CommentModel;
-        [SetUp]
-        public void testInitialize()
-        {
-            CommentModel = new CreateModel(TestHelper.ProductService) { };
-        }
-        #endregion TestSetup
-
-
-        #region OnGet
         [Test]
-        //Applies Unit Tests to the create method for the website. 
-        public void OnGet_Valid_Should_Return_Products()
+        public void CommentModel_Id_IsUnique()
         {
             // Arrange
-            var oldCount = TestHelper.ProductService.GetAllData().Count();
+            var comment1 = new CommentModel();
+            var comment2 = new CommentModel();
 
             // Act
-            CommentModel.OnGet();
 
             // Assert
-            Assert.AreEqual(true, CommentModel.ModelState.IsValid);
-            Assert.AreEqual(oldCount + 1, TestHelper.ProductService.GetAllData().Count());
+            Assert.AreNotEqual(comment1.Id, comment2.Id);
         }
-        #endregion OnGet
-        #region Serialize
+
         [Test]
-        //Applies a unit test validation on the Json toString serialization.
-        public void Valid_Serialization()
+        public void CommentModel_Set_And_Get_Comments()
         {
             // Arrange
-            var comment = TestHelper.ProductService.CreateData();
-            var settings = new JsonSerializerSettings
-            {
-                // Added Json Serialization setting to handle single quotation marks in strings
-                StringEscapeHandling = StringEscapeHandling.EscapeHtml
-            };
-            // Serializes the data using the new settings
-            var expectedJson = JsonConvert.SerializeObject(comment, settings);
+            var comment = new CommentModel();
+            var expectedComment = "Testing 1,2,3";
 
             // Act
-            var actualResult = comment.ToString();
+            comment.Comment = expectedComment;
+            var actualComment = comment.Comment;
 
             // Assert
-            Assert.AreEqual(expectedJson, actualResult);
+            Assert.AreEqual(expectedComment, actualComment);
+        }
+
+        [Test]
+        public void CommentModel_set_Id_IsValid()
+        {
+            // Arrange
+            var comment = new CommentModel();
+            var expectedId = "Testing 3,2,1";
+
+            // Act
+            comment.Id = expectedId;
+            var actualId = comment.Id;
+
+            // Assert
+            Assert.AreEqual(expectedId, actualId);
         }
     }
-    #endregion Serialize
-
 }
