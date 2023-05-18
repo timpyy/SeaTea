@@ -156,7 +156,7 @@ namespace UnitTests.Components
         [Test]
         public void SubmitRating_Valid_ID_Click_Stared_Should_Increment_Count_And_Leave_Star_Check_Remaining()
         {
-            
+
             /// This test tests that the SubmitRating will change the vote as well as the Star checked
             /// Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
             //The test needs to open the page
@@ -165,7 +165,7 @@ namespace UnitTests.Components
             ///Then check a star
             ///Then check again the state of the cound and star check status
             ///
-            
+
 
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
@@ -337,8 +337,31 @@ namespace UnitTests.Components
 
 
         }
+        [Test]
+        public void SubmitComment_Valid_ID_Click_And_Comment_On_Click_Add_Comment()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var id = "Tea King";
+
+            var page = RenderComponent<ProductList>();
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            button.Click();
+
+            // Get the markup of the page post the Click action
+            var buttonMarkup = page.Markup;
+
+            // Get the Comment Button
+            var commentButton = page.FindAll("button").FirstOrDefault(btn => btn.OuterHtml.Contains("Add Comment"));
+            //Assert
+
+            Assert.IsNotNull(commentButton);
+        }
     }
 
-
 }
-
