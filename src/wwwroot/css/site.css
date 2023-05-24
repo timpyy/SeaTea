@@ -177,3 +177,17 @@ w3-light-grey .progress-container {
 .clear-btn {
     line-height: 1;
 }
+
+/**Adds padding to h5.SeaTea-Intro
+   Modifies font style to
+*/
+.SeaTea-Intro {
+    margin: 50px 0 50px 0;
+}
+
+.SeaTea-Header{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: 'Yellowtail', cursive;
+    font-size: 4rem;
+}
