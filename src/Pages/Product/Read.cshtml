@@ -14,8 +14,10 @@
     <img class="card-img" src='@Model.Product.Image' width="300" height="500" alt='Image for @Model.Product.Title'>
 
     <p class="card-text">@Model.Product.Description</p>
-    <p class="text-info">Phone: @Model.Product.Phone<br>URL: @Model.Product.Url<br />
-        Menu: @Model.Product.OnlineMenuLink</p>
+    <p class="text-info">
+        Phone: @Model.Product.Phone<br>URL: <a href="@Model.Product.Url">@Model.Product.Url</a><br />
+        Menu: <a href="@Model.Product.OnlineMenuLink">@Model.Product.OnlineMenuLink</a>
+    </p>
 </div>
 
 <br />
