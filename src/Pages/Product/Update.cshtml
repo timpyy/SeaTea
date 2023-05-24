@@ -76,4 +76,37 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <script>
+        var inputImage = document.getElementById('Product_Image');
+
+        inputImage.addEventListener('change', function () {
+            var imageUrl = inputImage.value;
+
+            var internetConnectionRequest = new XMLHttpRequest();
+            internetConnectionRequest.open('HEAD', imageUrl, true);
+            internetConnectionRequest.onreadystatechange = function () {
+                // Http fetch request was successful
+                if (internetConnectionRequest.readyState === 4) {
+                    // Request successfully reached the webpage
+                    if (internetConnectionRequest.status === 200) {
+                        // Read the headers of the http connection
+                        var contentType = internetConnectionRequest.getResponseHeader('Content-Type');
+                        // Ensures that 'image' is a subtype of the returned message
+                        if (contentType.indexOf('image') === 0) {
+                            // Valid image URL reached
+                        } else {
+                            // URL does not have an image header in the HTTP request
+                            alert('The URL provided is not an image.');
+                            inputImage.value = '';
+                        }
+                    } else {
+                        // Internet connection may of caused the validation to fail
+                        alert('Failed to load the URL.');
+                        inputImage.value = '';
+                    }
+                }
+            };
+            internetConnectionRequest.send();
+        });
+    </script>
 }
