@@ -15,8 +15,10 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Action</th>
+                <th>Store Name</th>
+                <th>View Details</th>
+                <th>Update Details</th>
+                <th>Delete Store Info</th>
             </tr>
         </thead>
         <tbody>
@@ -25,6 +27,8 @@
                 <tr>
                     <td>@product.Title</td>
                     <td><a asp-page="Read" asp-route-id="@product.Id">Read</a></td>
+                    <td><a asp-page="Update" asp-route-id="@product.Id">Update</a></td>
+                    <td><a asp-page="Delete" asp-route-id="@product.Id">Delete</a></td>
                 </tr>
             }
         </tbody>
