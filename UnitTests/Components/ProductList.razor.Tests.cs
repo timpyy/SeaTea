@@ -27,15 +27,15 @@ namespace UnitTests.Components
 
         [SetUp]
         public void TestInitialize()
-            /// Used to initialize ProductList.razor.Tests.cs
+        /// Used to initialize ProductList.razor.Tests.cs
         {
         }
 
         #endregion TestSetup
 
         [Test]
-        public void ProductList_Default_Should_Return_Content()
         ///Ensures that the product list returns default content.
+        public void ProductList_Default_Should_Return_Content()
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
@@ -53,9 +53,9 @@ namespace UnitTests.Components
 
         #region SelectProduct
         [Test]
+        ///Test to check that selecting a specific item on the home page
+        ///selects the correct product tile
         public void SelectProduct_Valid_ID_TeaKing_Should_Return_Content()
-            ///Test to check that selecting a specific item on the home page
-            ///selects the correct product tile
         {
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
@@ -83,18 +83,17 @@ namespace UnitTests.Components
         #region SubmitRating
 
         [Test]
+        ///
+        ///This test tests that the SubmitRating will change the vote as well as the Star checked
+        ///Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
+        ///The test needs to open the page
+        ///Then open the popup on the card
+        ///Then record the state of the count and star check status
+        ///Then check a star
+        ///Then check again the state of the cound and star check status
+        ///
         public void SubmitRating_Valid_ID_Click_Unstared_Should_Increment_Count_And_Check_Star()
         {
-            ///
-            ///This test tests that the SubmitRating will change the vote as well as the Star checked
-            ///Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
-            ///The test needs to open the page
-            ///Then open the popup on the card
-            ///Then record the state of the count and star check status
-            ///Then check a star
-            ///Then check again the state of the cound and star check status
-            ///
-
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var id = "MoreInfoButton_Drip Tea";
@@ -155,19 +154,17 @@ namespace UnitTests.Components
         }
 
         [Test]
+        ///
+        /// This test tests that the SubmitRating will change the vote as well as the Star checked
+        /// Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
+        /// The test needs to open the page
+        /// Then open the popup on the card
+        /// Then record the state of the count and star check status
+        /// Then check a star
+        /// Then check again the state of the cound and star check status
+        ///
         public void SubmitRating_Valid_ID_Click_Stared_Should_Increment_Count_And_Leave_Star_Check_Remaining()
         {
-            ///
-            /// This test tests that the SubmitRating will change the vote as well as the Star checked
-            /// Because the star check is a calculation of the ratings, using a record that has no stars and checking one makes it clear what was changed
-            /// The test needs to open the page
-            /// Then open the popup on the card
-            /// Then record the state of the count and star check status
-            /// Then check a star
-            /// Then check again the state of the cound and star check status
-            ///
-
-
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var id = "Tea King";
@@ -228,14 +225,12 @@ namespace UnitTests.Components
         }
         #endregion SubmitRating
         [Test]
+        ///
+        /// This function tests that users can input information into the
+        /// filter tab
+        /// 
         public void FilterInput_IsValid()
         {
-            ///
-            /// This function tests that users can input information into the
-            /// filter tab
-            /// 
-
-
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var input = "Tea King";
@@ -252,14 +247,12 @@ namespace UnitTests.Components
             Assert.AreEqual(input, inputBar.GetAttribute("value"));
         }
         [Test]
+        ///
+        /// This function tests the filter button will re-render the page for
+        /// whatever input the user given
+        ///
         public void Filter_Input_Filter_Button_Page_Is_Valid()
         {
-            ///
-            /// This function tests the filter button will re-render the page for
-            /// whatever input the user given
-            ///
-
-
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var input = "Tea King";
@@ -281,13 +274,12 @@ namespace UnitTests.Components
             Assert.IsTrue(filterMarkup.Contains(input));
         }
         [Test]
+        ///
+        /// This function tests that the clear button resets the input filter and 
+        /// renders all objects to the home page
+        ///
         public void Clear_Input_Filter_Is_Valid()
         {
-            ///
-            /// This function tests that the clear button resets the input filter and 
-            /// renders all objects to the home page
-            ///
-
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var input = "Tea King";
@@ -310,12 +302,13 @@ namespace UnitTests.Components
 
         }
         [Test]
+        ///
+        /// This function tests that changing the neighborhood filter gives a 
+        /// valid output
+        ///
         public void Neighborhood_Filter_Is_Valid()
         {
-            ///
-            /// This function tests that changing the neighborhood filter gives a 
-            /// valid output
-            ///
+            
 
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
@@ -337,14 +330,13 @@ namespace UnitTests.Components
 
         }
         [Test]
+        ///
+        /// This function tests to ensure that the when the user interacts with both the 
+        /// neighborhood filter and the input filter renders the products delimited by
+        /// both data filters
+        ///
         public void Neighborhood_Filter_With_Input_Filter_Valid()
         {
-            ///
-            /// This function tests to ensure that the when the user interacts with both the 
-            /// neighborhood filter and the input filter renders the products delimited by
-            /// both data filters
-            ///
-
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var page = RenderComponent<ProductList>();
