@@ -78,8 +78,29 @@ namespace UnitTests.Components
             // Assert
             Assert.AreEqual(true, pageMarkup.Contains("Tea King"));
         }
-        #endregion SelectProduct
 
+        [Test]
+        public void Products_Should_Return_Expected_Items()
+        {
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            // Arrange
+            var expectedProducts = new List<ProductModel>
+        {
+            new ProductModel { Id = "Tea Shop1", Title = "Tea Shop1" },
+            new ProductModel { Id = "Tea Shop2", Title = "Tea Shop2" },
+            new ProductModel { Id = "Tea Shop3", Title = "Tea Shop3" }
+        };
+
+            var component = RenderComponent<ProductList>(parameters => parameters
+                .Add(p => p.Products, expectedProducts));
+
+            // Act
+            var actualProducts = component.Instance.Products;
+
+            // Assert
+            Assert.AreEqual(expectedProducts, actualProducts);
+        }
+        #endregion SelectProduct
         #region SubmitRating
 
         [Test]
