@@ -377,7 +377,12 @@ namespace UnitTests.Components
             // Assert
             Assert.IsTrue(inputFilter.Contains(input));
         }
+
         [Test]
+        ///
+        /// This function is designed to test that a new comment is show on the home tile screen
+        /// when the user clicks on add comment
+        ///
         public void ShowNewCommentInput_Should_Set_NewComment_To_True()
         {
             // Arrange
