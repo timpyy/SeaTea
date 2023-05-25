@@ -171,7 +171,7 @@ namespace ContosoCrafts.WebSite.Services
             productData.Image = data.Image;
             productData.Phone = data.Phone;
             productData.OnlineMenuLink = data.OnlineMenuLink;
-
+            productData.CommentList= data.CommentList;
             SaveData(products);
 
             return productData;
