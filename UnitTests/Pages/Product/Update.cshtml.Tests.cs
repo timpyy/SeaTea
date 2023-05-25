@@ -60,6 +60,8 @@ namespace UnitTests.Pages.Product.Update
 
         #region RedirectsError
         [Test]
+        //checks if on error the redirection to error page works or no.
+
         public void OnGet_With_Invalid_Id_Redirects_To_Error_Page()
         {
 
@@ -68,10 +70,10 @@ namespace UnitTests.Pages.Product.Update
             /// Arrange
 
             /// Act
-            pageModel.OnGet("Nothing");
-            var errorPage = pageModel.GetType();
+            pageModel.OnGet("Nothing");     // checks pagemodel onget on nothing
+            var errorPage = pageModel.GetType();// gets the page type
             /// Assert
-            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);//validates the page
         }
         #endregion RedirectsError
 
