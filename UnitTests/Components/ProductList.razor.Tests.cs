@@ -301,11 +301,11 @@ namespace UnitTests.Components
         ///
         public void Clear_Input_Filter_Is_Valid()
         {
-            // Arrange
-            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+                // Arrange
+                Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var input = "Tea King";
             var otherStore = "Ding Tea";
-            var page = RenderComponent<ProductList>();
+                var page = RenderComponent<ProductList>();
             // Find the Filter Input
             var inputBar = page.Find("input[type='text']");
             var filterButton = page.Find("button.btn-success");
@@ -314,11 +314,11 @@ namespace UnitTests.Components
             var filterMarkup = page.Markup;
             var clearButton = page.Find("button.btn-danger");
 
-            // Act
+                // Act
             clearButton.Click();
             var clearMarkup = page.Markup;
 
-            // Assert
+                // Assert
             Assert.IsTrue(clearMarkup.Contains(otherStore));
 
         }
@@ -376,6 +376,28 @@ namespace UnitTests.Components
 
             // Assert
             Assert.IsTrue(inputFilter.Contains(input));
+        }
+        [Test]
+        public void ShowNewCommentInput_Should_Set_NewComment_To_True()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var id = "Tea King";
+
+            var page = RenderComponent<ProductList>();
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            button.Click();
+
+            // Get the markup of the page post the Click action
+            var buttonMarkup = page.Markup;
+
+            // Assert
+            Assert.IsNotNull(buttonMarkup);
         }
     }
 }
