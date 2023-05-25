@@ -58,6 +58,23 @@ namespace UnitTests.Pages.Product.Update
 
         #endregion OnGet
 
+        #region RedirectsError
+        [Test]
+        public void OnGet_With_Invalid_Id_Redirects_To_Error_Page()
+        {
+
+
+
+            /// Arrange
+
+            /// Act
+            pageModel.OnGet("Nothing");
+            var errorPage = pageModel.GetType();
+            /// Assert
+            Assert.AreEqual(true, pageModel.ModelState.IsValid);
+        }
+        #endregion RedirectsError
+
 
         #region OnPost
 
