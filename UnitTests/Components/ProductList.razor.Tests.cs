@@ -383,7 +383,7 @@ namespace UnitTests.Components
             // Arrange
             Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
             var id = "Tea King";
-
+            var testComment = "TEST";
             var page = RenderComponent<ProductList>();
 
             // Find the Buttons (more info)
@@ -392,12 +392,23 @@ namespace UnitTests.Components
             // Find the one that matches the ID looking for and click it
             var button = buttonList.First(m => m.OuterHtml.Contains(id));
             button.Click();
+            var moreInfoButtonMarkup = page.Markup;
+            var addCommentButton = page.Find("#AddComment");
+            addCommentButton.Click();
+            var commentArea = page.Find("input[type='text']");
+            commentArea.Change(testComment);
+            var textInputtedOnPage = page.Markup;
+            var saveCommentButton = page.Find(".btn-success");
+            saveCommentButton.Click();
+            var commentOnPage = page.Markup;
+
+
 
             // Get the markup of the page post the Click action
-            var buttonMarkup = page.Markup;
+
 
             // Assert
-            Assert.IsNotNull(buttonMarkup);
+            Assert.IsTrue(commentOnPage.Contains(testComment));
         }
     }
 }
