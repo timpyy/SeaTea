@@ -191,3 +191,10 @@ w3-light-grey .progress-container {
     font-family: 'Yellowtail', cursive;
     font-size: 4rem;
 }
+
+.read-card-img {
+    max-width: 80%;
+    border-radius: calc(0.25rem - 1px);
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
