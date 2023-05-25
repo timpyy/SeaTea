@@ -116,8 +116,8 @@
         <div class="modal-footer">
                     <div class="row">
 
-                        <div class="col">
-
+                        <div class="col card" style="width: 18rem;">
+                            <ul class=" list-group list-group-flush">
                             @{
 
                                 // First show all the existing comments
@@ -125,16 +125,13 @@
                                 foreach (var comment in selectedProduct.CommentList)
 
                                 {
-
-                                    <div class="row">
-
-                                        <div class="col">
+                                    <li class="list-group-item">
+                                    
 
                                             @comment.Comment
 
-                                        </div>
-
-                                    </div>
+                                        
+                                        </li>
 
                                 }
 
@@ -183,7 +180,7 @@
                                 }
 
                             }
-
+                                </ul>
                         </div>
                     </div>
           @if(voteCount == 0)
