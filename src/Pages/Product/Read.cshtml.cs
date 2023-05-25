@@ -40,7 +40,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
             //If invalid URL for read page provided, redirect to Index
             if (Product == null)
             {
-                return RedirectToPage("./Index");
+                return RedirectToPage("../Error");
             }
 
             return Page();
