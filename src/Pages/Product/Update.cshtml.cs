@@ -43,6 +43,7 @@ namespace ContosoCrafts.WebSite.Pages.Product
         public IActionResult OnGet(string id)
         {
             Product = ProductService.GetAllData().FirstOrDefault(m => m.Id.Equals(id));
+            //Redirect to error page if invalid product was requested
             if(Product == null)
             {
                 return RedirectToPage("../Error");
