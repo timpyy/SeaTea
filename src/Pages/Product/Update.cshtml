@@ -15,7 +15,7 @@
 
         <div class="form-group">
             <label asp-for="Product.Title" class="control-label"> Store Name </label>
-            <input asp-for="Product.Title" class="form-control" type="text" required/>
+            <input asp-for="Product.Title" class="form-control" type="text" pattern="[^@@#$%^&amp;*()\/&quot;';:>&lt;\\~]*" title="The following characters are not allowed: @@#$%^&amp;*()\/&quot;';:>&lt;\\~" required/>
             <span asp-validation-for="Product.Title" class="text-danger"></span>
         </div>
 
@@ -42,26 +42,26 @@
 
         <div class="form-group">
 
-            <label asp-for="Product.Url" class="control-label"> Store URL </label>
-            <input asp-for="Product.Url" class="form-control" type="url" required/>
+            <label asp-for="Product.Url" class="control-label"> Store URL (I.E. https://mybobastore.com/)</label>
+            <input asp-for="Product.Url" class="form-control" type="url" title="URLs must follow the following format: https://mystore.com" required/>
             <span asp-validation-for="Product.Url" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Product.Image" class="control-label">Store Image URL</label>
-            <input asp-for="Product.Image" class="form-control" type="url" required/>
+            <label asp-for="Product.Image" class="control-label">Store Image URL (I.E. https://mybobastore.com/image/)</label>
+            <input asp-for="Product.Image" class="form-control" type="url" title="URLs must follow the following format: https://mystore.com/" required/>
             <span asp-validation-for="Product.Image" class="text-danger"></span>
         </div>
 
         <div class="form-group">
             <label asp-for="Product.Phone" class="control-label">Store Phone Number</label>
-            <input asp-for="Product.Phone" class="form-control" type="text"/>
+            <input asp-for="Product.Phone" class="form-control" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" title="Phone numbers must follow the following format: 123-456-7890"/>
             <span asp-validation-for="Product.Phone" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Product.OnlineMenuLink" class="control-label">Store Online Menu URL</label>
-            <input asp-for="Product.OnlineMenuLink" class="form-control" type="url" />
+            <label asp-for="Product.OnlineMenuLink" class="control-label">Store Online Menu URL (I.E. https://mybobastore.com/menu/)</label>
+            <input asp-for="Product.OnlineMenuLink" class="form-control" type="url" title="URLs must follow the following format: https://mystore.com/"/>
             <span asp-validation-for="Product.OnlineMenuLink" class="text-danger"></span>
         </div>
 
