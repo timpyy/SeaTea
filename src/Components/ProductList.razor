@@ -113,98 +113,99 @@
             </div>
           </div>
         </div>
-        <div class="modal-footer">
+                <div class="modal-footer">
                     <div class="row">
 
-                        <div class="col card" style="width: 18rem;">
-                            <ul class=" list-group list-group-flush">
-                            @{
+                        <div class="col  " style="width: 18rem;">
+                            <p><h4>Comments <i class="fa fa-comment "></i></h4></p>
+                            <ul class=" list-group border border-success rounded">
+                                @{
 
-                                // First show all the existing comments
+                                    // First show all the existing comments
 
-                                foreach (var comment in selectedProduct.CommentList)
+                                    foreach (var comment in selectedProduct.CommentList)
 
-                                {
-                                    <li class="list-group-item">
-                                    
+                                    {
+                                        <li class="list-group-item rounded border border-info" style="border-width: 2px;">
 
+                                            <i class="fa fa-user"></i>
                                             @comment.Comment
 
-                                        
+
                                         </li>
 
-                                }
+                                    }
 
 
 
-                                // If this is a new comment, then add the Input boxes for it, else show the Add Comment Button
+                                    // If this is a new comment, then add the Input boxes for it, else show the Add Comment Button
 
-                                if (NewComment)
+                                    if (NewComment)
 
-                                {
+                                    {
 
-                                    <div class="row">
+                                        <div class="row">
 
-                                        <div class="col">
+                                            <div class="col">
 
-                                            <input type="text" @onchange="(e) => UpdateCommentText(e.Value.ToString())" value="@NewCommentText" />
+                                                <input type="text" @onchange="(e) => UpdateCommentText(e.Value.ToString())" value="@NewCommentText" />
 
-                                            <button @onclick="(e => AddComment())" class="btn btn-success" data-toggle="modal">Save Comment</button>
+                                                <button @onclick="(e => AddComment())" class="btn btn-success" data-toggle="modal">Save Comment</button>
 
-                                        </div>
-
-                                    </div>
-
-                                }
-
-
-
-                                // If this is not a new comment, then show the buttons for Adding comment and Close
-
-                                if (NewComment == false)
-
-                                {
-
-                                    <div class="row">
-
-                                        <div class="col">
-
-                                            <button @onclick="(e => ShowNewCommentInput())" id="AddComment" class="btn btn-primary">Add Comment</button>
-
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
 
                                         </div>
 
-                                    </div>
+                                    }
+
+
+
+                                    // If this is not a new comment, then show the buttons for Adding comment and Close
+
+                                    if (NewComment == false)
+
+                                    {
+
+                                        <div class="row">
+
+                                            <div class="col">
+
+                                                <button @onclick="(e => ShowNewCommentInput())" id="AddComment" class="btn btn-primary">Add Comment</button>
+
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                            </div>
+
+                                        </div>
+
+                                    }
 
                                 }
-
-                            }
-                                </ul>
+                            </ul>
                         </div>
                     </div>
-          @if(voteCount == 0)
-          {
-            <span>Be the first to vote!</span>
-          }
-          else
-          {
-            <span>@voteCount @voteLabel</span>
-          }
-          @for(int i=1; i<6; i++)
-          {
-            var currentStar = i;
-            if(i<=currentRating)
-            {
-              <span class="fa fa-star checked" @onclick="(e => SubmitRating(currentStar))"></span>
-            }
-            else
-            {
-              <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
-            }
-          }
-                    
-        </div>
+                    @if (voteCount == 0)
+                    {
+                        <span>Be the first to vote!</span>
+                    }
+                    else
+                    {
+                        <span>@voteCount @voteLabel</span>
+                    }
+                    @for (int i = 1; i < 6; i++)
+                    {
+                        var currentStar = i;
+                        if (i <= currentRating)
+                        {
+                            <span class="fa fa-star checked" @onclick="(e => SubmitRating(currentStar))"></span>
+                        }
+                        else
+                        {
+                            <span class="fa fa-star" @onclick="(e => SubmitRating(currentStar))"></span>
+                        }
+                    }
+
+                </div>
       </div>
         
     </div>
