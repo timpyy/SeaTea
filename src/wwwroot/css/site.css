@@ -182,7 +182,7 @@ w3-light-grey .progress-container {
    Modifies font style to
 */
 .SeaTea-Intro {
-    margin: 50px 0 50px 0;
+    margin: 50px 450px 50px 0;
 }
 
 .SeaTea-Header{
@@ -197,4 +197,14 @@ w3-light-grey .progress-container {
     border-radius: calc(0.25rem - 1px);
     margin-bottom: 25px;
     margin-top: 5px;
+}
+
+.banner {
+    width: 100%;
+    padding: 90px 60px;
+    text-align: left;
+    color: white;
+    background-image: url("https://cdn.shopify.com/s/files/1/0587/7848/4781/files/Bubble-Milk-Tea-and-Tapioca-Pearls.webp?v=1668461458");
+    background-size: cover;
+    background-position: center;
 }
