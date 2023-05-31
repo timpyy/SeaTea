@@ -65,6 +65,7 @@ body {
 
 .SeaTea-Front {
     background-image: url("https://static.vecteezy.com/system/resources/thumbnails/003/475/139/small/grey-abstract-background-wallpaper-design-free-vector.jpg");
+    background-size:cover;
 }
 [tabindex="-1"]:focus {
   outline: 0 !important;
