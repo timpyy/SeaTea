@@ -363,8 +363,10 @@ namespace UnitTests.Components
             var page = RenderComponent<ProductList>();
             var neighborhoodInput = "International District";
             var input = "TP Tea";
+            var otherStore = "Sharetea - Chinatown";
             var neighborhoodOptions = page.Find("#neighborhoodSelect");
             var selectNeighborhood = neighborhoodOptions.Children[2];
+
 
             // Act
             neighborhoodOptions.Change(neighborhoodInput);
@@ -372,10 +374,13 @@ namespace UnitTests.Components
             var inputBar = page.Find("input[type='text']");
             var filterButton = page.Find("button.btn-success");
             inputBar.Change(input);
-            var inputFilter = page.Markup;
+            filterButton.Click();
+            var filter = page.Markup;
 
             // Assert
-            Assert.IsTrue(inputFilter.Contains(input));
+            Assert.IsTrue(filter.Contains(input));
+            Assert.IsTrue(neighborhoodFilter.Contains(otherStore));
+            Assert.IsFalse(filter.Contains(otherStore));     
         }
 
         [Test]
