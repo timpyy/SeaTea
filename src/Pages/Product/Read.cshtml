@@ -31,6 +31,20 @@
             <td><a href="@Model.Product.OnlineMenuLink" target="_blank"rel="noopener nofollow">Live Menu</a></td>
         </tr>
     </table>
+    <ul class="list-group list-group-flush" style="width: 18rem;">
+        @{
+            if (Model.Product.CommentList.Count > 0)
+            {
+                foreach (var comment in Model.Product.CommentList)
+                {
+                    <li class="list-group-item">
+                        @comment.Comment
+                    </li>
+
+                }
+            }
+        }
+    </ul>
     <div>
         <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn btn-primary">Update</a> &nbsp; &nbsp;
         <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn btn-danger">Delete</a>
