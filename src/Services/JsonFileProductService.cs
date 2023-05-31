@@ -131,13 +131,13 @@ namespace ContosoCrafts.WebSite.Services
             var data = new ProductModel()
             {
                 Id = System.Guid.NewGuid().ToString(),
-                Title = "Enter Store Name",
-                Description = "Enter Store Address",
-                Neighborhood = "Enter Seattle Neighborhood",
-                Url = "Enter Store URL",
-                Image = "Enter Store Image URL",
-                Phone = "Enter Store's Phone Number",
-                OnlineMenuLink = "Enter URL to Store's menu",
+                Title = "",
+                Description = "",
+                Neighborhood = "",
+                Url = "",
+                Image = "",
+                Phone = "",
+                OnlineMenuLink = "",
             };
 
             //Get the current set, and append the new record to it
