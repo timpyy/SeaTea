@@ -11,7 +11,7 @@
           
             <input placeholder="Enter store name" type="text" class="search-box" @onchange="(e) => UpdateFilterText(e.Value.ToString())" value="@FilterDataString" />
             <button @onclick="(e => EnableFilterData())" class="btn btn-success filter-btn">Filter</button>
-            <button @onclick="(e => ClearFilterData())" class="btn btn-danger clear-btn">Clear</button>
+            <button @onclick="(e => ClearFilterData())" id="clearButton" class="btn btn-danger clear-btn">Clear</button>
         </div>
     </div>
 
