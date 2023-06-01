@@ -32,13 +32,13 @@
         </tr>
     </table>
     <p><h4>Comments <i class="fa fa-comment "></i></h4></p>
-    <ul class="list-group border border-success rounded" style="width: 18rem;">
+    <ul class="list-group border border-success rounded comment-a" >
         @{
             if (Model.Product.CommentList.Count > 0)
             {
                 foreach (var comment in Model.Product.CommentList)
                 {
-                    <li class="list-group-item rounded border border-info">
+                    <li class="list-group-item rounded border border-info comment-b">
                     <i class="fa fa-user"></i>
                         @comment.Comment
                     </li>
