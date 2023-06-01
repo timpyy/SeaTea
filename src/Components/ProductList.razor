@@ -150,7 +150,7 @@
 
                                                 <input type="text" @onchange="(e) => UpdateCommentText(e.Value.ToString())" id="commentInput" value="@NewCommentText" />
 
-                                                <button @onclick="(e => AddComment())" class="btn btn-success" data-toggle="modal">Save Comment</button>
+                                                <button @onclick="(e => AddComment())" class="btn btn-success" id="saveInput" modal">Save Comment</button>
 
                                             </div>
 
