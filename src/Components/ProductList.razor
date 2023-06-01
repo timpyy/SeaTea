@@ -280,7 +280,7 @@
     //Set new comment to false and as an empty string.
     bool NewComment = false;
     string NewCommentText = "";
-    
+
     /// <summary>
     /// The purpose of this class is to show the new comment.
     /// </summary>
@@ -293,7 +293,10 @@
     void UpdateCommentText(string newCommentText)
     {
         //Sets the comments.
-        NewCommentText = newCommentText;
+        if (newCommentText.Length > 0)
+        {
+            NewCommentText = newCommentText;
+        }
     }
 
    /// <param name="comment"></param>
