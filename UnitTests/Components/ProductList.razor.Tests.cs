@@ -415,10 +415,40 @@ namespace UnitTests.Components
 
 
             // Get the markup of the page post the Click action
-
+            var updatedValue = page.Find("input[type='text']").GetAttribute("value");
 
             // Assert
             Assert.IsTrue(commentOnPage.Contains(testComment));
+            Assert.AreEqual(testComment, updatedValue);
+        }
+        [Test]
+        ///
+        /// This function is a test that the input field for adding comments updates while the user types 
+        ///
+        public void UpdateCommentText_Should_Update_NewCommentText()
+        {
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var id = "Tea King";
+            var testComment = "TEST";
+            var page = RenderComponent<ProductList>();
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(id));
+            button.Click();
+            var moreInfoButtonMarkup = page.Markup;
+            var addCommentButton = page.Find("#AddComment");
+            addCommentButton.Click();
+            var commentArea = page.Find("#commentInput");
+
+
+            // Act
+            commentArea.Change(testComment);
+            var textInputtedOnPage = page.Markup;
+            // Assert
+            Assert.IsTrue(textInputtedOnPage.Contains(testComment));
         }
     }
 }
