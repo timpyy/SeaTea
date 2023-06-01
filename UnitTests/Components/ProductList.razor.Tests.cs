@@ -383,6 +383,34 @@ namespace UnitTests.Components
             Assert.IsTrue(neighborhoodFilter.Contains(otherStore));
             Assert.IsFalse(filter.Contains(otherStore));     
         }
+        /// 
+        /// This is a test for a the neighborhood filter without input filter
+        /// 
+        [Test]
+        public void Neighborhood_Filter_Without_Input_Filter_Valid()
+        {
+            // Arrange
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var page = RenderComponent<ProductList>();
+            var neighborhoodInput = "International District";
+            var otherStore = "Sharetea - Chinatown";
+            var clearButton = page.Find("#clearButton");
+
+            // Act
+            clearButton.Click();
+            var clearMarkup = page.Markup;
+            var neighborhoodOptions = page.Find("#neighborhoodSelect");
+            var selectNeighborhood = neighborhoodOptions.Children[2];
+
+
+            // Act
+            neighborhoodOptions.Change(neighborhoodInput);
+            var neighborhoodFilter = page.Markup;
+            var filter = page.Markup;
+
+            // Assert
+            Assert.IsTrue(neighborhoodFilter.Contains(otherStore));
+        }
 
         [Test]
         ///
