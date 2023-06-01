@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TestContext = Bunit.TestContext;
 using Castle.DynamicProxy;
+using AngleSharp.Common;
 
 namespace UnitTests.Components
 {
@@ -449,6 +450,38 @@ namespace UnitTests.Components
             var textInputtedOnPage = page.Markup;
             // Assert
             Assert.IsTrue(textInputtedOnPage.Contains(testComment));
+        }
+        [Test]
+        ///
+        /// This function is a test that add comments adds to product comment models
+        ///
+        public void Add_Comment_Creates_Valid_Comment_Model_In_Product()
+        {
+            Services.AddSingleton<JsonFileProductService>(TestHelper.ProductService);
+            var productId = "Sharetea - Chinatown";
+            var testComment = "TEST";
+            var page = RenderComponent<ProductList>();
+
+            // Find the Buttons (more info)
+            var buttonList = page.FindAll("Button");
+
+            // Find the one that matches the ID looking for and click it
+            var button = buttonList.First(m => m.OuterHtml.Contains(productId));
+            button.Click();
+            var moreInfoButtonMarkup = page.Markup;
+            var addCommentButton = page.Find("#AddComment");
+            addCommentButton.Click();
+            var commentArea = page.Find("#commentInput");
+            commentArea.Change(testComment);
+            var textInputtedOnPage = page.Markup;
+            var saveCommentButton = page.Find("#saveInput");
+            saveCommentButton.Click();
+            var after_size = page.FindAll(".comment-b").Count();
+            var updatedComments = page.Markup;
+
+            // Assert
+            // Verify that a new comment with the correct text is added to the selected product
+            Assert.AreEqual(1, after_size);
         }
     }
 }
