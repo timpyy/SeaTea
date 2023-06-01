@@ -207,17 +207,8 @@
     "Neighborhood": "Capitol Hill",
     "OnlineMenuLink": "https://thedriptea.com/menu",
     "Phone": null,
-    "Ratings": [
-      4,
-      4,
-      4
-    ],
-    "CommentList": [
-      {
-        "Id": "192b653c-7828-41b5-a8cd-17b2fcbb2489",
-        "Comment": "Offers merchandise in the store for shirts and shorts. Bring extra cash it is well recommended."
-      }
-    ]
+    "Ratings": null,
+    "CommentList": []
   },
   {
     "Id": "The Moo Bar",
