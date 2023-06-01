@@ -7,7 +7,7 @@
     ViewData["Title"] = "Read page";
 }
 
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <h1>@Model.Product.Title</h1>
 <!-- Here we created the product description which has a title, image and breif description-->
 <div class="content read-div col">
@@ -33,7 +33,7 @@
     </table>
     <!--Adds comments section to read page with style.-->
     <p><h4 class="SeaTea-Comment">Comments <i class="fa fa-comment "></i></h4></p>
-    <ul class="list-group border border-success rounded comment-a" >
+    <ul class="list-group comment-a" >
         @{
             if (Model.Product.CommentList.Count > 0)
             {
@@ -52,7 +52,7 @@
             }
         }
     </ul>
-    <div style="padding-top: 50px;">
+    <div class="pad-read-btn">
         <a asp-page="Update" asp-route-id="@Model.Product.Id" class="btn btn-primary"><i class="fa fa-pencil"></i>Update Store</a> &nbsp; &nbsp;
         <a asp-page="Delete" asp-route-id="@Model.Product.Id" class="btn btn-danger"><i class="fa fa-trash"></i>Delete Store</a>
     </div>
