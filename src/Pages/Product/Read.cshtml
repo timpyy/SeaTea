@@ -31,7 +31,8 @@
             <td><a href="@Model.Product.OnlineMenuLink" target="_blank"rel="noopener nofollow">Live Menu</a></td>
         </tr>
     </table>
-    <p><h4>Comments <i class="fa fa-comment "></i></h4></p>
+    <!--Adds comments section to read page with style.-->
+    <p><h4 class="SeaTea-Comment">Comments <i class="fa fa-comment "></i></h4></p>
     <ul class="list-group border border-success rounded comment-a" >
         @{
             if (Model.Product.CommentList.Count > 0)
