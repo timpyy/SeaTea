@@ -293,18 +293,21 @@
     void UpdateCommentText(string newCommentText)
     {
         //Sets the comments.
-        if (newCommentText.Length > 0)
-        {
-            NewCommentText = newCommentText;
-        }
+
+        NewCommentText = newCommentText;
+
     }
 
-   /// <param name="comment"></param>
-   /// The purpose of this file is to add comments to store.
+    /// <param name="comment"></param>
+    /// The purpose of this file is to add comments to store.
     void AddComment()
     {
         ///Add a new comment.
-        selectedProduct.CommentList.Add(new CommentModel() { Comment = NewCommentText });
+        ///
+        if (NewCommentText.Length > 0)
+        {
+            selectedProduct.CommentList.Add(new CommentModel() { Comment = NewCommentText });
+        }
         ProductService.UpdateData(selectedProduct);
         NewComment = false;
     }
