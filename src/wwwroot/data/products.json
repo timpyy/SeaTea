@@ -17,7 +17,12 @@
       1,
       5
     ],
-    "CommentList": []
+    "CommentList": [
+      {
+        "Id": "6b1e6fc0-ecc1-4e39-9513-00825cee22ed",
+        "Comment": "Self served boba store. Really fun."
+      }
+    ]
   },
   {
     "Id": "Oasis - Chinatown",
@@ -50,7 +55,12 @@
     "OnlineMenuLink": "https://www.clover.com/online-ordering/ding-tea-seattle-seattle",
     "Phone": null,
     "Ratings": null,
-    "CommentList": []
+    "CommentList": [
+      {
+        "Id": "818c37d6-6820-4b42-a833-94206b022e6b",
+        "Comment": "Plays nice music inside. Good place to study."
+      }
+    ]
   },
   {
     "Id": "Happy Lemon",
@@ -62,8 +72,17 @@
     "Neighborhood": "South Lake Union",
     "OnlineMenuLink": "https://happylemonseattle.com",
     "Phone": null,
-    "Ratings": null,
-    "CommentList": []
+    "Ratings": [
+      5,
+      5,
+      4
+    ],
+    "CommentList": [
+      {
+        "Id": "82531737-c5b6-41ac-af85-ab5af23aef00",
+        "Comment": "One of the many spots in Seattle, but this neighborhood is my favorite!"
+      }
+    ]
   },
   {
     "Id": "Sunright Tea Studio",
@@ -101,8 +120,17 @@
     "Neighborhood": "International District",
     "OnlineMenuLink": "https://en.tp-tea.com/menu/",
     "Phone": null,
-    "Ratings": null,
-    "CommentList": []
+    "Ratings": [
+      4,
+      4,
+      4
+    ],
+    "CommentList": [
+      {
+        "Id": "45ef1298-65e8-49e3-b343-377a31c2a0fd",
+        "Comment": "Brought my friends here, fun place to be."
+      }
+    ]
   },
   {
     "Id": "OH Bear Cafe \u0026 Teahouse",
@@ -133,9 +161,15 @@
       3,
       2,
       1,
-      5
+      5,
+      4
     ],
-    "CommentList": []
+    "CommentList": [
+      {
+        "Id": "5b5f89d0-053d-4cb5-a92b-cb1e72db4795",
+        "Comment": "This is my favorite spot in Seattle!"
+      }
+    ]
   },
   {
     "Id": "Tiger Sugar",
@@ -173,8 +207,17 @@
     "Neighborhood": "Capitol Hill",
     "OnlineMenuLink": "https://thedriptea.com/menu",
     "Phone": null,
-    "Ratings": null,
-    "CommentList": []
+    "Ratings": [
+      4,
+      4,
+      4
+    ],
+    "CommentList": [
+      {
+        "Id": "192b653c-7828-41b5-a8cd-17b2fcbb2489",
+        "Comment": "Offers merchandise in the store for shirts and shorts. Bring extra cash it is well recommended."
+      }
+    ]
   },
   {
     "Id": "The Moo Bar",
@@ -186,8 +229,15 @@
     "Neighborhood": "South Lake Union",
     "OnlineMenuLink": "https://themoobar.square.site/?shipping=true",
     "Phone": null,
-    "Ratings": null,
-    "CommentList": []
+    "Ratings": [
+      4
+    ],
+    "CommentList": [
+      {
+        "Id": "fef8c964-5b55-4190-8e7a-02c7b3ecb58f",
+        "Comment": "Offers gluten free milk."
+      }
+    ]
   },
   {
     "Id": "Yifang Fruit Tea - Chinatown",
@@ -199,8 +249,16 @@
     "Neighborhood": "International District",
     "OnlineMenuLink": "https://www.yifangteapnw.com/menu",
     "Phone": null,
-    "Ratings": null,
-    "CommentList": []
+    "Ratings": [
+      5,
+      4
+    ],
+    "CommentList": [
+      {
+        "Id": "8390cbb4-1c17-4ad5-9ebe-496d45140bd3",
+        "Comment": "Try the yakult flavor here it is really good!"
+      }
+    ]
   },
   {
     "Id": "Mochinut",
@@ -213,7 +271,12 @@
     "OnlineMenuLink": "https://www.mochinut.com/donut-menu",
     "Phone": null,
     "Ratings": null,
-    "CommentList": []
+    "CommentList": [
+      {
+        "Id": "535953ba-0a09-4c7c-9ba0-158a89e53604",
+        "Comment": "The snacks mochinut offers are really good as well!"
+      }
+    ]
   },
   {
     "Id": "Tea Republik",
@@ -231,9 +294,16 @@
       3,
       2,
       1,
-      5
+      5,
+      4,
+      4
     ],
-    "CommentList": []
+    "CommentList": [
+      {
+        "Id": "b4a7f680-c5c0-455d-8f53-7dbaed55aec5",
+        "Comment": "Medium priced drinks!"
+      }
+    ]
   },
   {
     "Id": "Don\u0027t Yell at Me",
@@ -293,7 +363,16 @@
       1,
       5
     ],
-    "CommentList": []
+    "CommentList": [
+      {
+        "Id": "5ce72806-77bf-4d30-aa5e-613f98e8d749",
+        "Comment": "Plays nice music inside. Good place to study."
+      },
+      {
+        "Id": "869b9396-0ed6-4d4c-8d7e-3b44dd239d00",
+        "Comment": "Real fun place to be."
+      }
+    ]
   },
   {
     "Id": "Young Tea",
@@ -313,7 +392,12 @@
       1,
       5
     ],
-    "CommentList": []
+    "CommentList": [
+      {
+        "Id": "21cb43ab-0b7c-4344-b77f-4a5604a2f160",
+        "Comment": "More focused on regular tea."
+      }
+    ]
   },
   {
     "Id": "Boba Lust",
