@@ -12,6 +12,10 @@
 
 .comment-b {
     border-width: 2px;
+    margin-bottom: 5px;
+}
+.pad-read-btn {
+    padding-top: 50px;
 }
 
 /* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
