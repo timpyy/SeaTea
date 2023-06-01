@@ -161,15 +161,9 @@
       3,
       2,
       1,
-      5,
-      4
+      5
     ],
-    "CommentList": [
-      {
-        "Id": "5b5f89d0-053d-4cb5-a92b-cb1e72db4795",
-        "Comment": "This is my favorite spot in Seattle!"
-      }
-    ]
+    "CommentList": []
   },
   {
     "Id": "Tiger Sugar",
